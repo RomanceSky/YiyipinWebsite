@@ -1,0 +1,437 @@
+
+【一】
+创建应用app——User
+python manage.py startapp User
+User下默认文件：
+admin.py  __init__.py  __init__.pyc  migrations  models.py  tests.py  views.py
+
+（需要自己创建urls.py）
+urls.py(项目app下)
+from django.conf.urls import include, url
+from django.contrib import admin
+urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+urlpatterns +=[
+    url(r'^u/', include('User.urls')),#包含应用项目app
+]
+【添加app】创建数据库之前，需要在settings文件中注册一下app
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    
+    'User',
+
+)
+
+【创建数据表:修改models.py】
+生成创建数据库的配置文件
+python manage.py makemigrations
+　　此时在test1目录下会生成一个0001_initial.py  生成数据库的配置文件
+　　根据生成的配置文件创建数据库
+python manage.py migrate我们来同步一下数据库（我们使用默认的数据库 SQLite3，无需配置）
+先 cd 进入 manage.py 所在的那个文件夹下，输入下面的命令
+ 
+# Django 1.6.x 及以下
+python manage.py syncdb
+ 
+# Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations
+python manage.py migrate
+这样，就创建好了数据库。
+
+
+
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# python manage.py makemigrations
+Migrations for 'User':
+  0001_initial.py:
+    - Create model Article
+    - Create model Author
+    - Create model Book
+    - Create model Publisher
+    - Create model UserInfo
+    - Add field publisher to book
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: staticfiles, messages
+  Apply all migrations: admin, contenttypes, User, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+  Installing custom SQL...
+Running migrations:
+  Rendering model states... DONE
+  Applying User.0001_initial... OK
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying sessions.0001_initial... OK
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# 
+“每个数据库表对应一个类”这条规则的例外情况是多对多关系。 
+在我们的范例模型中， Book 有一个 多对多字段 叫做 authors 。
+该字段表明一本书籍有一个或多个作者，但 Book 数据库表却并没有 authors 字段。 
+相反，Django创建了一个额外的表（多对多连接表）来处理书籍和作者之间的映射关系。
+激活 这些模型。 
+将 books app 添加到配置文件的已安装应用列表中即可完成此步骤
+也就是之前的注册app
+ python manage.py check验证模型的有效性
+CREATE TABLE "books_book_authors" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "book_id" integer NOT NULL REFERENCES "books_book" ("id") DEFERRABLE INITIALLY DEFERRED,
+    "author_id" integer NOT NULL REFERENCES "books_author" ("id") DEFERRABLE INITIALLY DEFERRED,
+    UNIQUE ("book_id", "author_id")
+)
+;
+自动生成的表名是app名称（ books ）和模型的小写名称 （ publisher , book , author )的组合。你可以参考附录B重写这个规则。
+
+我们前面已经提到，Django为每个表格自动添加加了一个 id 主键， 你可以重新设置它。1
+
+按约定，Django添加 "_id" 后缀到外键字段名。 你猜对了，这个同样是可以自定义的。5
+
+外键是用 REFERENCES 语句明确定义的。
+【生成sql代码并测试】
+查询自强学堂:Person
+>>> from User.models import Person
+>>> Person.objects.create(name="WeizhongTu", age=24)
+<Person: Person object>
+
+查询结果中显示<Person: Person object>，这里并没有显示出与WeizhongTu的相关信息，如果用户多了就无法知道查询出来的到底是谁
+修改models.py
+from django.db import models
+ 
+ 
+class Person(models.Model):
+    name = models.CharField(max_length=30)
+    age = models.IntegerField()
+     
+    def __unicode__(self):
+    # 在Python3中使用 def __str__(self):
+        return self.name
+【基本数据访问1】
+
+创建一个对象：
+
+>>> from User.models import Person
+>>> Person.objects.create(name="WeizhongTu", age=24)
+<Person: Person object>
+>>> p.age
+23
+>>> Person.objects.get_or_create(name="WZT", age=23)
+(<Person: Person object>, True)这种方法是防止重复很好的方法，但是速度要相对慢些，返回一个元组，
+第一个为Person对象，第二个为True或False, 新建时返回的是True, 已经存在时返回False.
+建一个对象的方法有以下几种：
+
+Person.objects.create(name=name,age=age)
+
+p = Person(name="WZ", age=23)
+
+p.save()
+
+p = Person(name="TWZ")
+
+p.age = 23
+
+p.save()
+
+Person.objects.get_or_create(name="WZT", age=23)
+
+这种方法是防止重复很好的方法，但是速度要相对慢些，返回一个元组，第一个为Person对象，第二个为True或False, 新建时返回的是True, 已经存在时返回False.
+
+
+
+获取对象有以下方法：
+
+Person.objects.all()
+
+Person.objects.all()[:10] 切片操作，获取10个人，不支持负索引，切片可以节约内存
+
+Person.objects.get(name=name)
+
+
+
+get是用来获取一个对象的，如果需要获取满足条件的一些人，就要用到filter
+
+Person.objects.filter(name="abc")  # 等于Person.objects.filter(name__exact="abc") 名称严格等于 "abc" 的人
+
+Person.objects.filter(name__iexact="abc")  # 名称为 abc 但是不区分大小写，可以找到 ABC, Abc, aBC，这些都符合条件
+
+
+
+Person.objects.filter(name__contains="abc")  # 名称中包含 "abc"的人
+
+Person.objects.filter(name__icontains="abc")  #名称中包含 "abc"，且abc不区分大小写
+
+
+
+Person.objects.filter(name__regex="^abc")  # 正则表达式查询
+
+Person.objects.filter(name__iregex="^abc")  # 正则表达式不区分大小写
+
+
+
+filter是找出满足条件的，当然也有排除符合某条件的
+
+Person.objects.exclude(name__contains="WZ")  # 排除包含 WZ 的Person对象
+
+Person.objects.filter(name__contains="abc").exclude(age=23)  # 找出名称含有abc, 但是排除年龄是23岁的
+【基本数据访问2】
+
+>>> from User.models import Publisher
+>>> publisher_list = Publisher.objects.all()
+>>> publisher_list
+[]
+
+#创建对象
+>>> p  = Publisher(name='Apress', 
+...     address = '2855 Telegraph Ave.',
+...     city = 'Berkely',
+...     state_province = 'CA',
+...     country = 'U.S.A',
+...     website = 'http://www.appress.com/')
+#数据插入到数据库中
+>>> p.save()
+#访问数据
+>>> p.website
+'http://www.appress.com/'
+>>> p.id
+1
+>>> p.name
+'Apress'
+
+
+#修改记录的内容
+执行 UPDATE SQL语句
+>>> p.name = 'Apple'
+>>> p.save()
+>>> p.name
+'Apple'
+save():
+注意，并不是只更新修改过的那个字段，所有的字段都会被更新。 
+update():
+
+objects属性:
+它被称为管理器
+all() 方法:
+这个方法返回返回数据库中所有的记录
+尽管这个对象 看起来 象一个列表（list），它实际是一个 QuerySet 对象， 这个对象是数据库中一些记录的集合
+数据过滤:使用`` filter()`` 方法对数据进行过滤：
+filter() 根据关键字参数来转换成 WHERE SQL语句
+>>> Publisher.objects.filter(name='Apple')
+[<Publisher: Publisher object>]
+传递多个参数到 filter() 来缩小选取范围
+
+>>> Publisher.objects.filter(country="U.S.A", state_province="CA")
+[<Publisher: Publisher object>]
+
+在 name 和 contains 之间有双下划线
+>>> Publisher.objects.filter(name__contains="ple")
+[<Publisher: Publisher object>]
+contains部分会被Django翻译成LIKE语句
+其他的一些查找类型有：icontains(大小写无关的LIKE),startswith和endswith, 还有range(SQLBETWEEN查询）。 
+
+
+获取单个对象
+`` filter()`` 函数返回一个记录集，这个记录集是一个列表
+相对列表来说，有些时候我们更需要获取单个的对象， `` get()`` 方法就是在此时使用的：
+>>> Publisher.objects.get(name="Apple")
+<Publisher: Publisher object>
+>>> Publisher.objects.get(country="U.S.A")
+<Publisher: Publisher object>
+
+【异常处理】
+查询没有返回结果
+get返回单个对象，如果结果是多个对象，抛出异常
+#在你的应用中，你可以捕获并处理这个异常
+>>> try:
+...     p = Publisher.objects.get(name='Apples')
+... except Publisher.DoesNotExist:
+...     print "Apple isn't in the database yet."
+... else:
+...     print "Appress is in the database."
+... 
+Apple isn't in the database yet.
+>>> try:
+...     p = Publisher.objects.get(name='Apple')
+... except Publisher.DoesNotExist:
+...     print "Apple isn't in the database yet."
+... else:
+...     p = Publisher.objects.get(name='Apple')
+... 
+>>> 
+
+数据排序：order_by()方法
+希望根据某字段的值对检索结果排序，比如说，按字母顺序
+根据某字段的值对检索结果排序
+>>> Publisher.objects.order_by("name")
+[<Publisher: Publisher object>]
+对任意字段进行排序
+>>> Publisher.objects.order_by("address")
+[<Publisher: Publisher object>]
+>>> Publisher.objects.order_by("state_province")
+[<Publisher: Publisher object>]
+需要以多个字段为标准进行排序（第二个字段会在第一个字段的值相同的情况下被使用到）
+>>> Publisher.objects.order_by("state_province", "address")
+[<Publisher: Publisher object>]
+指定逆向排序，在前面加一个减号 - 前缀
+>>> Publisher.objects.order_by("-name")
+[<Publisher: Publisher object>]
+尽管很灵活，但是每次都要用 order_by() 显得有点啰嗦。 大多数时间你通常只会对某些 字段进行排序。 在这种情况下，Django让你可以指定模型的缺省排序方式：
+
+
+【来接触一个新的概念。 class Meta】
+你可以在任意一个 模型 类中使用 Meta 类，来设置一些与特定模型相关的选项
+**class Meta:**
+        **ordering = ['name']**
+关注 ordering 这个选项就够了
+如果你设置了这个选项，那么除非你检索时特意额外地使用了 order_by()，
+否则，当你使用 Django 的数据库 API 去检索时，Publisher对象的相关返回值
+默认地都会按 name 字段排序。
+【连锁查询】
+知道了如何对数据进行过滤和排序
+通常我们需要同时进行过滤和排序查询的操作
+
+>>> Publisher.objects.filter(country='U.S.A').order_by("-name")
+[<Publisher: Publisher object>]
+>>> from User.models import *
+使用标准的Python列表裁剪语句
+>>> Publisher.objects.order_by('name')[0]
+<Publisher: Publisher object>
+>>> Publisher.objects.order用Python的range-slicing语法来取出数据的特定子集_by('name')[0:2]
+[<Publisher: Publisher object>]
+注意，不支持Python的负索引(negative slicing)：
+更新多个对象
+模型的save()方法：这个方法会更新一行里的所有列
+某些情况下，我们只需要更新行里的某几列：
+
+更改某一指定的列，我们可以调用结果集（QuerySet）对象的update()方法
+
+update：
+>>> p = Publisher.objects.get(name='Apple')
+>>> p.name = 'Banana'
+>>> p.save()
+>>> Publisher.objects.filter(id=52).update(name="Apple and Banana")
+0
+>>> Publisher.objects.all().update(country='USA')
+1
+>>> 
+update()方法对于任何结果集（QuerySet）均有效，这意味着你可以同时更新多条记录
+update()方法会返回一个整型数值，表示受影响的记录条数
+
+删除对象：只需调用该对象的delete()方法
+>>> p = Publisher.objects.get(name="Banana")
+>>> p.delete()
+>>> Publisher.objects.all()
+[]
+>>> Publisher.objects.filter(country='USA').delete()
+>>> Publisher.objects.all().delete()
+>>> Publisher.objects.all()
+[]
+删除数据时要谨慎！ 为了预防误删除掉某一个表内的所有数据，Django要求在删除表内所有数据时显示使用all()。
+>>> Publisher.objects.delete()是错误的
+
+
+
+【Django QuerySet API】
+
+
+
+
+
+【进一步通过视图来实现：数据库增、删、改、查】
+
+
+
+Django是怎么处理请求的
+在继续我们的第二个视图功能之前，让我们暂停一下去了解更多一些有关Django是怎么工作的知识. 
+具体地说，当你通过在浏览器里敲http://127.0.0.1:8000/hello/来访问Hello world消息得时候，Django在后台有些什么动作呢？
+
+所有均开始于setting文件。
+当你运行python manage.py runserver，脚本将在于manage.py同一个目录下查找名为setting.py的文件。
+这个文件包含了所有有关这个Django项目的配置信息，均大写： TEMPLATE_DIRS , DATABASE_NAME , 等. 
+最重要的设置时ROOT_URLCONF，它将作为URLconf告诉Django在这个站点中那些Python的模块将被用到18
+
+还记得什么时候django-admin.py startproject创建文件settings.py和urls.py吗？
+自动创建的settings.py包含一个ROOT_URLCONF配置用来指向自动产生的urls.py. 打开文件settings.py你将看到如下：
+ROOT_URLCONF = 'mysite.urls'
+相对应的文件是mysite/urls.py
+另外一个重点，正则表达式字符串的开头字母“r”。 它告诉Python这是个原始字符串，不需要处理里面的反斜杠（转义字符）
+设计了一个带通配符的URL，我们需要一个方法把它传递到视图函数里去
+使用圆括号把参数在URL模式里标识 出来。 在这个例子中，我们想要把这些数字作为参数，用圆括号把 \d{1,2} 包围起来：7
+
+(r'^time/plus/(\d{1,2})/$', hours_ahead),
+正则表达式也是用圆括号来从文本里 提取 数据的
+
+提取offset，从url中， hours_ahead(request, offset)
+
+def hours_ahead(request, offset):
+    try:
+        offset = int(offset)
+    except ValueError:
+        raise Http404()
+    dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
+    html = "<html><body>In %s hour(s), it will be %s.</body></html>" % (offset, dt)
+    return HttpResponse(html)
+让我们逐行分析一下代码：
+
+视图函数, hours_ahead , 有 两个 参数: request 和 offset . (见上)5
+
+request 是一个 HttpRequest 对象, 就像在 current_datetime 中一样. 再说一次好了: 每一个视图 总是 以一个 HttpRequest 对象作为 它的第一个参数。 (见上)
+
+offset 是从匹配的URL里提取出来的。 例如：如果请求URL是/time/plus/3/，那么offset将会是3；
+【基本的数据访问3:Django QuerySet ——API自强学堂】
+数据库接口相关的接口（QuerySet API)
+从数据库中查询出来的结果一般是一个集合，这个集合叫做 QuerySet
+1. QuerySet 创建对象的方法
+>>> from User.models import *
+>>> b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
+>>> b.save()
+>>> b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
+总之，一共有四种方法
+# 方法 1:使用create
+>>> BlogAuthor.objects.create(name="WeizhongTu", email="tuweizhong@163.com")
+<BlogAuthor: WeizhongTu>
+# 方法 2：使用save()一次性创建
+>>> dd = BlogAuthor(name='WeizhongTu', email="tuiweizhong@163.com")
+>>> dd.save()
+>>> dd = BlogAuthor(name='WeizhongTu', email="tuiweizhong@163.com")
+>>> dd.save()
+# 方法 3：根据属性一个个设置
+>>> dd = Author()
+>>> dd.name = "WeizhongTu"
+>>> dd.email = "tuweizhong@163.com"
+>>> dd.save()
+
+# 方法 4，首先尝试获取，不存在就创建，可以防止重复
+>>> BlogAuthor.objects.get_or_create(name="WeizhongTu", email="tuweizhong@163.com")
+(<BlogAuthor: WeizhongTu>, False)
+>>> 
+
+
+
+【参考】
+1、http://www.cnblogs.com/ahaii/p/5695512.html
+Django使用介绍
+
+1、MTV
+
+Django中的MTV分别表示models、templates和views。
+
+models文件主要定义数据库的连接。
+
+templates文件可以放一些html的模版。
+
+views文件主要定义处理请求的函数
+2、django Book
+3、http://blog.csdn.net/wcc526/article/details/12239649
