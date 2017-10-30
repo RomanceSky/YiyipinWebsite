@@ -390,7 +390,9 @@ def hours_ahead(request, offset):
 request 是一个 HttpRequest 对象, 就像在 current_datetime 中一样. 再说一次好了: 每一个视图 总是 以一个 HttpRequest 对象作为 它的第一个参数。 (见上)
 
 offset 是从匹配的URL里提取出来的。 例如：如果请求URL是/time/plus/3/，那么offset将会是3；
+
 【基本的数据访问3:Django QuerySet ——API自强学堂】
+
 数据库接口相关的接口（QuerySet API)
 从数据库中查询出来的结果一般是一个集合，这个集合叫做 QuerySet
 1. QuerySet 创建对象的方法
@@ -417,6 +419,9 @@ offset 是从匹配的URL里提取出来的。 例如：如果请求URL是/time/
 >>> BlogAuthor.objects.get_or_create(name="WeizhongTu", email="tuweizhong@163.com")
 (<BlogAuthor: WeizhongTu>, False)
 >>> 
+备注：前三种方法返回的都是对应的 object，最后一种方法返回的是一个元组，(object, True/False)，创建时返回 True, 已经存在时返回 False
+
+当有一对多，多对一，或者多对多的关系的时候，先把相关的对象查询出来
 
 
 
