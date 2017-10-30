@@ -1,0 +1,163 @@
+如项目SOA中的urls.py的一小段代码：
+urls.py中设置
+  url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': public.templatePath()+'users/login.html'}, name = "userLogin"),
+视图中设置：
+@login_required(login_url=reverse_lazy("userLogin"))
+如果用户登录，执行下面的视图函数，如果用户未登录，那么将跳转到上面设置的模板中
+
+
+
+我们在网站开发过程中，经常会遇到这样的需求：
+  ● 用户登陆系统才可以访问某些页面
+  ● 如果用户没有登陆而直接访问就会跳转到登陆界面，而不能访问其他页面。
+  ● 用户在跳转的登陆界面中完成登陆后，自动访问跳转到之前访问的地址
+要实现这样的需求其实很简单：
+  1. 使用django自带的装饰器 @login_required。
+  2. 在相应的view方法的前面添加@login_required
+  3. 并在settings.py中配置LOGIN_URL参数
+  4. 修改login.html中的表单action参数
+login_required()的用法是：
+首先如果用户没有登录，则重定向至settings.LOGIN_URL， 并且在查询字符串中传递当前绝对路径； 
+其次如果用户已经登录，那么就正常的执行视图函数。
+url部分：
+urlpatterns = patterns('',
+                #登陆
+                (r'^accounts/login/$',login),
+
+                #退出
+                (r'^accounts/logout/$',logout),
+
+                #主界面
+                (r'^main/$',views.main),
+)
+视图部分：
+@login_required(login_url='/accounts/login')
+def main(request):
+        return render_to_response('main.html')
+
+
+Django中 @login_required用法简介
+我们在网站开发过程中，经常会遇到这样的需求：
+  ● 用户登陆系统才可以访问某些页面
+  ● 如果用户没有登陆而直接访问就会跳转到登陆界面，而不能访问其他页面。
+  ● 用户在跳转的登陆界面中完成登陆后，自动访问跳转到之前访问的地址
+要实现这样的需求其实很简单：
+  1. 使用django自带的装饰器 @login_required。
+  2. 在相应的view方法的前面添加@login_required
+  3. 并在settings.py中配置LOGIN_URL参数
+  4. 修改login.html中的表单action参数
+view.py设置:
+from djanco.contrib.auth.decorators import login_required
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+  
+@login_required
+def myview(request):
+    return render_to_response('index.html')
+如果用户还没有登录，默认会跳转到‘/accounts/login/’。这个值可以在settings文件中通过LOGIN_URL参数来设定。（后面还会自动加上你请求的url作为登录后跳转的地址，如： /accounts/login/?next=/polls/3/ 登录完成之后，会去请求/poll/3)
+setting.py设置:
+....
+LOGIN_URL = '/accounts/login/'  #这个路径需要根据你网站的实际登陆地址来设置
+....
+urls.py设置:
+from django.conf.urls import url
+from django.contrib import admin
+from app01 import views
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^, views.index),
+    url(r'^accounts/login/, views.acc_login),
+    url(r'^logout/, views.acc_logout),
+    url(r'^host/, views.host, name='host'),
+    url(r'^asset/, views.asset,name='asset'),
+    url(r'^audit/, views.audit,name='audit'),
+]
+如果LOGIN_URL使用默认值，那么在urls.py中还需要进行如下设置：（加入下面这句）
+(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+这样的话，如果未登录，程序会默认跳转到“templates\registration\login.html”这个模板。
+如果想换个路径，另一种方式:那就再加个template_name参数，如下：
+(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'myapp/login.html'}),
+这样程序就会跳转到templates\myapp\login.html”
+login.html设置:
+<div class="container">
+  <form class="form-signin" action="/accounts/login/" method="post">{% csrf_token %} <!--csrf_token：生成令牌-->
+    <h2 class="form-signin-heading" align="center">登录系统</h2>
+    <label for="inputUsername" class="sr-only">username</label>
+    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> 记住密码
+      </label>
+    </div>
+    <br />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    <br />
+    <span style="color: red;">{{ login_err }}</span>
+  </form>
+</div> <!-- /container -->
+其他有用方法
+除了login这个有用的方法之外，auth模块还提供很多有用的方法，比如：
+logout(request[, next_page, template_name, redirect_field_name])
+password_change(request[, template_name, post_change_redirect, password_change_form])
+password_change_done(request[, template_name])
+password_reset(request[, is_admin_site, template_name, email_template_name, password_reset_form,token_generator, post_reset_redirect, from_email])
+password_reset_done(request[, template_name])
+用法用例:
+(r'^change_passwd/$', 'django.contrib.auth.views.password_change', {
+    'template_name': 'change_passwd.html',
+    'post_change_redirect': '/',
+}),
+(r'^reset_passwd/$', 'django.contrib.auth.views.password_reset', {
+    'template_name': 'reset_passwd.html',
+    'email_template_name': 'reset_passwd_email.html',
+    'post_reset_redirect': '/reset_done/',
+    'from_email': 'noreply@jihua.in',
+}),
+(r'^reset_confirm/(?P<uidb36>[0-9A-Za-z]{1,13})-(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', \
+    'django.contrib.auth.views.password_reset_confirm', {
+        'template_name': 'reset_confirm.html',
+        'post_reset_redirect': '/signin/',
+    }
+),
+(r'^reset_done/$', 'django.views.generic.simple.direct_to_template', {'template': 'message.html', 'extra_context': {
+    'msg': _(u'我们已将一封包含恢复密码步骤的邮件发到了您的邮箱，请查收'),
+}}),
+Django登陆访问限制@login_required
+python专题1
+在网站开发过程中，经常会遇到这样的需求：
+
+用户登陆系统才可以访问某些页面
+
+如果用户没有登陆而直接访问就会跳转到登陆界面，
+
+用户在跳转的登陆界面中完成登陆后，自动访问跳转到之前访问的地址
+
+要实现这样的需求其实很简单：就是使用@login_required标签。在想相应的view方法的前面添加@login_required标签，并在settings.py中配置LGOIN_URL参数（即登陆url）。具体代码如下：
+#views.py
+from djanco.contrib.auth.decorators import login_required
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+ 
+@login_required
+def myview(request):
+    return render_to_response('index.html')
+
+
+#settings.py
+....
+LOGIN_URL = '/account/login/'  #这个路径需要根据你网站的实际登陆地址来设置
+....
+如果要使用django的默认登陆界面，则可以通过在urls.py中如此配置
+
+#urls.py
+...
+(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+...
+
+
+
+
+
+
