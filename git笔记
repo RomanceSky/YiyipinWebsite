@@ -1,0 +1,165 @@
+
+
+
+[root@izwz9hbv3lrr68d8bo5dvpz ~]# cd learn
+[root@izwz9hbv3lrr68d8bo5dvpz learn]# cd virtualenv
+[root@izwz9hbv3lrr68d8bo5dvpz virtualenv]# source venvSOA/bin/activate
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz virtualenv]# ls
+venvSOA
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz virtualenv]# cd ..
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz learn]# cd ..
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz ~]# cd M_Arts
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# ls
+Yiyipin
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# cd Yiyipin
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git add -A
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git commit
+Aborting commit due to empty commit message.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push origin YiyipinWeb
+fatal: 'YiyipinWebsite' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin git@github.com:RomanceSky/YiyipinWebsite.git
+fatal: remote origin already exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote1 add origin git@github.com:RomanceSky/YiyipinWebsite.git
+git: 'remote1' is not a git command. See 'git --help'.
+
+Did you mean this?
+	remote
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin1 git@github.com:RomanceSky/YiyipinWebsite.git
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push origin1 YiyipinWeb
+The authenticity of host 'github.com (192.30.255.113)' can't be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.113' (RSA) to the list of known hosts.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git branch -a
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git checkout -b jun
+Switched to a new branch 'jun'
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git branch -a
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]#  git config --global user.email "1171039932@qq.com"
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git config --global user.name  "RomanceSky"
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git commit -m "first commit"
+[jun (root-commit) 64c2e8a] first commit
+ 5 files changed, 149 insertions(+)
+ create mode 100644 Yiyipin/__init__.py
+ create mode 100644 Yiyipin/settings.py
+ create mode 100644 Yiyipin/urls.py
+ create mode 100644 Yiyipin/wsgi.py
+ create mode 100755 manage.py
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git branch -a
+* jun
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin git@github.com:RomanceSky/YiyipinWebsite.git
+fatal: remote origin already exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+fatal: 'YiyipinWebsite' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin https://github.com/RomanceSky/Yiyipin.git
+fatal: remote origin already exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin https://github.com/RomanceSky/YiyipinWeb.git
+fatal: remote origin already exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin1 https://github.com/RomanceSky/YiyipinWeb.git
+fatal: remote origin1 already exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote rm origin1
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote rm origin
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin https://github.com/RomanceSky/YiyipinWeb.git
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+Username for 'https://github.com': RomanceSky
+Password for 'https://RomanceSky@github.com': 
+remote: Repository not found.
+fatal: repository 'https://github.com/RomanceSky/YiyipinWeb.git/' not found
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin https://github.com/RomanceSky/YiyipinWebsite.git
+fatal: remote origin already exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote rm origin
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin https://github.com/RomanceSky/YiyipinWebsite.git
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+Username for 'https://github.com': RomanceSky
+Password for 'https://RomanceSky@github.com': 
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/RomanceSky/YiyipinWebsite.git'
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git add -A
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git commit
+# On branch jun
+nothing to commit, working directory clean
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+Username for 'https://github.com': RomanceSky
+Password for 'https://RomanceSky@github.com': 
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/RomanceSky/YiyipinWebsite.git'
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git checkout master
+error: pathspec 'master' did not match any file(s) known to git.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]#  git commit -m "initial commit"
+# On branch jun
+nothing to commit, working directory clean
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+Username for 'https://github.com': RomanceSky
+Password for 'https://RomanceSky@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/RomanceSky/YiyipinWebsite.git/'
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]#  git commit -m "initial commit"
+# On branch jun
+nothing to commit, working directory clean
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+Username for 'https://github.com': RomanceSky
+Password for 'https://RomanceSky@github.com': 
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/RomanceSky/YiyipinWebsite.git'
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git pull origin master
+warning: no common commits
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/RomanceSky/YiyipinWebsite
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+Username for 'https://github.com': RomanceSky
+Password for 'https://RomanceSky@github.com': 
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/RomanceSky/YiyipinWebsite.git'
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git checkout master
+error: pathspec 'master' did not match any file(s) known to git.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git init
+Reinitialized existing Git repository in /root/M_Arts/Yiyipin/.git/
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git add .
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git commit -m 'message'
+# On branch jun
+nothing to commit, working directory clean
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git *create remote
+git: '*create' is not a git command. See 'git --help'.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git push -u origin master
+Username for 'https://github.com': RomanceSky
+Password for 'https://RomanceSky@github.com': 
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/RomanceSky/YiyipinWebsite.git'
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote rm origin
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git init
+Reinitialized existing Git repository in /root/M_Arts/Yiyipin/.git/
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git add .
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git commit -m 'message'
+# On branch jun
+nothing to commit, working directory clean
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]#  git pull origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# git remote add origin https://github.com/RomanceSky/YiyipinWebsite.git
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]#  git pull origin master
+From https://github.com/RomanceSky/YiyipinWebsite
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz Yiyipin]# 
