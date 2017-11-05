@@ -1,1 +1,5 @@
 http://www.jianshu.com/p/ccf2ddc05530
+
+如果你有基本的HTML+CSS，bootstrap其实就是在标签中加入具体的class来实现样式。
+和原生态的HTML+CSS需要先在head标签的style写样式或者引入外部样式相比，
+bootstrap相当于已经写好了，直接用对应的class引用就可以了。
