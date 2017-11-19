@@ -37,7 +37,7 @@ class Entry(models.Model):
     rating = models.IntegerField()
 
     def __unicode__(self):
-        return slef.headline
+        return self.headline
 
  
 
@@ -78,7 +78,7 @@ class Article(models.Model):
     likes = models.IntegerField()
 
     def __unicode__(self):
-        return slef.title
+        return self.title
 
 
 

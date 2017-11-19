@@ -1,4 +1,4 @@
-"""Yiyipin URL Configuration
+"""Yiyipin onfiguration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -22,10 +22,12 @@ from django.contrib import admin
 
 urlpatterns =[
     url(r'^User/', include('User.urls', namespace='User')),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
 #    url(r'^u/', include('User.urls')),
 ]
 
 urlpatterns += [
     url(r'^video/', include('Video.urls', namespace='video')),
 ]
+
 

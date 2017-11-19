@@ -20,4 +20,5 @@ def Index(request):
     #return HttpResponse('1')
 
 def test():
-    return render_to_response('index_login.html')
+    return HttpResponseRedirect(reverse_lazy("User:test"))
+    #return render_to_response('index_login.html', {'test':2})
