@@ -21,5 +21,11 @@ from django.contrib import admin
 #]
 
 urlpatterns =[
-    url(r'^user/', include('User.urls')),
+    url(r'^User/', include('User.urls', namespace='User')),
+#    url(r'^u/', include('User.urls')),
 ]
+
+urlpatterns += [
+    url(r'^video/', include('Video.urls', namespace='video')),
+]
+

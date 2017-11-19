@@ -8,7 +8,13 @@
 <a>杨妹子</a>
 </p>
 
-{% endblock %}
+<!-- Datetimepicker -->
+<input type="text" value="2017-11-17" id="datetimepicker">
 
+
+{% endblock %}
+{% block footer %}
+$('#datetimepicker').datetimepicker();
+{% endblock %}
 
 

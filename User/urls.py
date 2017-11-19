@@ -1,10 +1,10 @@
-from django.conf.urls import include, url
-from django.contrib import admin
+from django.conf.urls import url
 
+from .views import *
 urlpatterns = [
-  url(r'^$', 'User.views.Index', name='Index'),
+  url(r'^$', Index, name='Index'),
   url(r'^login/$', 'django.contirb.auth.views.login',{'template_name':'User/login.html'}, name='userLogin'),
   
-
+  url(r'^User/list/$',test, name = 'test')
 ]
 
