@@ -1,0 +1,332 @@
+查看CentOS版本
+Centos 7 默认不支持mysql （都是因为钱），所以centos 7默认支持的是mariadbmariadb
+rpm -q centos-release
+centos-release-7-3.1611.el7.centos.x86_64
+CentOS 7.0 使用 yum 安装 MariaDB 与 MariaDB 的简单配置
+http://www.linuxidc.com/Linux/2016-03/128880.ht
+、安装MariaDB
+
+安装命令
+
+yum -y install mariadb mariadb-server
+安装完成MariaDB，首先启动MariaDB
+
+systemctl start mariadb
+设置开机启动
+
+systemctl enable mariadb
+接下来进行MariaDB的相关简单配置
+
+mysql_secure_installation
+首先是设置密码，会提示先输入密码
+
+Enter current password for root (enter for none):<–初次运行直接回车
+
+设置密码
+
+Set root password? [Y/n] <– 是否设置root用户密码，输入y并回车或直接回车
+New password: <– 设置root用户的密码
+Re-enter new password: <– 再输入一次你设置的密码
+
+其他配置
+
+Remove anonymous users? [Y/n] <– 是否删除匿名用户，回车
+
+Disallow root login remotely? [Y/n] <–是否禁止root远程登录,回车,
+
+Remove test database and access to it? [Y/n] <– 是否删除test数据库，回车
+
+Reload privilege tables now? [Y/n] <– 是否重新加载权限表，回车
+
+初始化MariaDB完成，接下来测试登录
+
+mysql -uroot -ppassword
+完成。
+意义品：
+
+
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# ps -A|grep mysql
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# /etc/init.d/mysqld start
+-bash: /etc/init.d/mysqld: No such file or directory
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -qa | grep mariadb
+mariadb-libs-5.5.56-2.el7.x86_64
+mariadb-devel-5.5.56-2.el7.x86_64
+mariadb-server-5.5.56-2.el7.x86_64
+mariadb-5.5.56-2.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -e --nodeps mariadb-devel-5.5.56-2.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -e --nodeps mariadb-server-5.5.56-2.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -e --nodeps mariadb-5.5.56-2.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -qa | grep mysql
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -qa | grep MySql
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -qa | grep MySQL
+perl-DBD-MySQL-4.023-5.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# rpm -e --nodeps perl-DBD-MySQL-4.023-5.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# cd ..
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# rpm -qa | grep MySQL
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# yum install mysql
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+Resolving Dependencies
+--> Running transaction check
+---> Package mariadb.x86_64 1:5.5.56-2.el7 will be installed
+--> Processing Dependency: mariadb-libs(x86-64) = 1:5.5.56-2.el7 for package: 1:mariadb-5.5.56-2.el7.x86_64
+--> Running transaction check
+---> Package mariadb-libs.x86_64 1:5.5.56-2.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================================
+ Package                   Arch                Version                     Repository         Size
+===================================================================================================
+Installing:
+ mariadb                   x86_64              1:5.5.56-2.el7              base              8.7 M
+Installing for dependencies:
+ mariadb-libs              x86_64              1:5.5.56-2.el7              base              757 k
+
+Transaction Summary
+===================================================================================================
+Install  1 Package (+1 Dependent package)
+
+Total download size: 9.5 M
+Installed size: 53 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/2): mariadb-libs-5.5.56-2.el7.x86_64.rpm                                 | 757 kB  00:00:00     
+(2/2): mariadb-5.5.56-2.el7.x86_64.rpm                                      | 8.7 MB  00:00:01     
+---------------------------------------------------------------------------------------------------
+Total                                                              4.7 MB/s | 9.5 MB  00:00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Warning: RPMDB altered outside of yum.
+  Installing : 1:mariadb-libs-5.5.56-2.el7.x86_64                                              1/2 
+  Installing : 1:mariadb-5.5.56-2.el7.x86_64                                                   2/2 
+  Verifying  : 1:mariadb-libs-5.5.56-2.el7.x86_64                                              1/2 
+  Verifying  : 1:mariadb-5.5.56-2.el7.x86_64                                                   2/2 
+
+Installed:
+  mariadb.x86_64 1:5.5.56-2.el7                                                                    
+
+Dependency Installed:
+  mariadb-libs.x86_64 1:5.5.56-2.el7                                                               
+
+Complete!
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# lsb_release -a
+-bash: lsb_release: command not found
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]#  rpm -q centos-release
+centos-release-7-3.1611.el7.centos.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# systemctl start mariadb  
+Failed to start mariadb.service: Unit not found.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# rpm -qa | grep mariadb
+mariadb-libs-5.5.56-2.el7.x86_64
+mariadb-5.5.56-2.el7.x86_64
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# yum -y install mariadb mariadb-server
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+Package 1:mariadb-5.5.56-2.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package mariadb-server.x86_64 1:5.5.56-2.el7 will be installed
+--> Processing Dependency: perl-DBD-MySQL for package: 1:mariadb-server-5.5.56-2.el7.x86_64
+--> Running transaction check
+---> Package perl-DBD-MySQL.x86_64 0:4.023-5.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================================
+ Package                    Arch               Version                      Repository        Size
+===================================================================================================
+Installing:
+ mariadb-server             x86_64             1:5.5.56-2.el7               base              11 M
+Installing for dependencies:
+ perl-DBD-MySQL             x86_64             4.023-5.el7                  base             140 k
+
+Transaction Summary
+===================================================================================================
+Install  1 Package (+1 Dependent package)
+
+Total download size: 11 M
+Installed size: 59 M
+Downloading packages:
+(1/2): perl-DBD-MySQL-4.023-5.el7.x86_64.rpm                                | 140 kB  00:00:00     
+(2/2): mariadb-server-5.5.56-2.el7.x86_64.rpm                               |  11 MB  00:00:01     
+---------------------------------------------------------------------------------------------------
+Total                                                              6.3 MB/s |  11 MB  00:00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : perl-DBD-MySQL-4.023-5.el7.x86_64                                               1/2 
+  Installing : 1:mariadb-server-5.5.56-2.el7.x86_64                                            2/2 
+  Verifying  : 1:mariadb-server-5.5.56-2.el7.x86_64                                            1/2 
+  Verifying  : perl-DBD-MySQL-4.023-5.el7.x86_64                                               2/2 
+
+Installed:
+  mariadb-server.x86_64 1:5.5.56-2.el7                                                             
+
+Dependency Installed:
+  perl-DBD-MySQL.x86_64 0:4.023-5.el7                                                              
+
+Complete!
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# systemctl start mariadb
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# systemctl enable mariadb
+Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# mysql_secure_installation
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] y
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] 
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] 
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] 
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] 
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+
+
+2、配置MariaDB的字符集
+
+文件/etc/my.cnf
+
+vi /etc/my.cnf
+在[mysqld]标签下添加
+
+init_connect='SET collation_connection = utf8_unicode_ci' 
+init_connect='SET NAMES utf8' 
+character-set-server=utf8 
+collation-server=utf8_unicode_ci 
+skip-character-set-client-handshake
+文件/etc/my.cnf.d/client.cnf
+
+vi /etc/my.cnf.d/client.cnf
+在[client]中添加
+
+default-character-set=utf8
+文件/etc/my.cnf.d/mysql-clients.cnf
+
+vi /etc/my.cnf.d/mysql-clients.cnf
+在[mysql]中添加
+
+default-character-set=utf8
+ 全部配置完成，重启mariadb
+
+systemctl restart mariadb
+之后进入MariaDB查看字符集
+
+mysql> show variables like "%character%";show variables like "%collation%";
+显示为
+
+
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client    | utf8                      |
+| character_set_connection | utf8                      |
+| character_set_database  | utf8                      |
+| character_set_filesystem | binary                    |
+| character_set_results    | utf8                      |
+| character_set_server    | utf8                      |
+| character_set_system    | utf8                      |
+| character_sets_dir      | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.00 sec)
+
++----------------------+-----------------+
+| Variable_name        | Value          |
++----------------------+-----------------+
+| collation_connection | utf8_unicode_ci |
+| collation_database  | utf8_unicode_ci |
+| collation_server    | utf8_unicode_ci |
++----------------------+-----------------+
+3 rows in set (0.00 sec)
+
+字符集配置完成。
+
+ 
+
+3、添加用户，设置权限
+
+创建用户命令
+
+mysql>create user username@localhost identified by 'password';
+直接创建用户并授权的命令
+
+mysql>grant all on *.* to username@localhost indentified by 'password';
+授予外网登陆权限 
+
+mysql>grant all privileges on *.* to username@'%' identified by 'password';
+授予权限并且可以授权
+
+mysql>grant all privileges on *.* to username@'hostname' identified by 'password' with grant option;
+简单的用户和权限配置基本就这样了。
+
+其中只授予部分权限把 其中 all privileges或者all改为select,insert,update,delete,create,drop,index,alter,grant,references,reload,shutdown,process,file其中一部分。
+
+Linux系统教程：如何检查MariaDB服务端版本  http://www.linuxidc.com/Linux/2015-08/122382.htm
+
+MariaDB Proxy读写分离的实现 http://www.linuxidc.com/Linux/2014-05/101306.htm
+
+Linux下编译安装配置MariaDB数据库的方法 http://www.linuxidc.com/Linux/2
+
+
+mariadb数据库的启动命令是：
+systemctl start mariadb  #启动MariaDB
+systemctl stop mariadb  #停止MariaDB
+systemctl restart mariadb  #重启MariaDB
+systemctl enable mariadb  #设置开机启动
+参考：
+https://jingyan.baidu.com/article/ce436649fec8533773afd385.html
