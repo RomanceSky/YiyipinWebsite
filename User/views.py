@@ -3,7 +3,8 @@ from django.shortcuts import render_to_response
 from django.template import Context
 from django.contrib.auth.models import User
 # Create your views here.
-
+from django.contrib import auth
+from .models import *
 """
 login_index
 """
@@ -19,6 +20,6 @@ def Index(request):
 
     #return HttpResponse('1')
 
-def test():
-    return HttpResponseRedirect(reverse_lazy("User:test"))
-    #return render_to_response('index_login.html', {'test':2})
+def index1(request):
+   # return HttpResponseRedirect(reverse_lazy("User:test"))
+    return render_to_response('index_login.html', {'test':2})
