@@ -1,3 +1,6 @@
+
+密码:123
+用户名:root
 查看CentOS版本
 Centos 7 默认不支持mysql （都是因为钱），所以centos 7默认支持的是mariadbmariadb
 rpm -q centos-release
@@ -43,6 +46,9 @@ Reload privilege tables now? [Y/n] <– 是否重新加载权限表，回车
 mysql -uroot -ppassword
 完成。
 意义品：
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# mysql -u root -p1234
+注意：
+-p与password是连在一起的
 
 
 (venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz MySQL-python-1.2.3c1]# ps -A|grep mysql
