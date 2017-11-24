@@ -3,10 +3,12 @@
 http://blog.csdn.net/wcc526/article/details/12239649
 
 ljj123ljj
-一、使用Djang框架自带的SQLite数据库
+<h1>一、使用Djang框架自带的SQLite数据库</h1>
 
-二、使用MySQL数据库
+<h1>二、使用MySQL数据库</h1>
+<p>
 因为自己使用的是Centos，所以在Centos中应该使用MariaDB数据库
+</p>
 (venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# mysql -u root -p1234
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 35
