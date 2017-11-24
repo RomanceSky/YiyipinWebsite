@@ -1,6 +1,9 @@
 # YiyipinWebsite
 (venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# 
 git clone git://github.com/RomanceSky/YiyipinWebsite.git
+git克隆指定分支的代码:
+git clone -b 分支名仓库地址
+
 
 意艺品
 http://blog.csdn.net/wcc526/article/details/12239649
