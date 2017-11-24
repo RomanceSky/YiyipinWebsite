@@ -20,3 +20,17 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 MariaDB [(none)]> 
 同时注意：登录时 mysql -u root -p1234中-p和密码之间是没有空格的
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec)
+https://www.w3cschool.cn/mariadb/mariadb_installation.html
+
+http://www.uedsc.com/python-programs-connect-mariadb.html
+http://blog.csdn.net/yf999573/article/details/53081196
