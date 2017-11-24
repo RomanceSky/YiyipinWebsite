@@ -1,4 +1,7 @@
 # YiyipinWebsite
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# 
+git clone git://github.com/RomanceSky/YiyipinWebsite.git
+
 意艺品
 http://blog.csdn.net/wcc526/article/details/12239649
 
