@@ -21,9 +21,9 @@ from django.contrib import admin
 #]
 
 urlpatterns =[
-    url(r'^User/', include('User.urls', namespace='User')),
+    url(r'^User/', include('User.urls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
-#    url(r'^u/', include('User.urls')),
+    url(r'^u/', include('User.urls')),
 ]
 
 urlpatterns += [
