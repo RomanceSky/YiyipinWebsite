@@ -1,3 +1,4 @@
+
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -7,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="https://img3.doubanio.com/f/frodo/cb278672a7ed5e611bd06d07592cf865a3f5cd91/pics/app/pin.png">
+<link rel="icon" href="https://img3.doubanio.com/f/frodo/144e6fb7d96701944e7dbb1a9bad51bdb1debe29/pics/app/logo.png">
 
 <meta charset="utf-8">
 
@@ -19,31 +20,32 @@
 <body>
 
 <!-- body content nav-->
-<div class="nav nav-pills">
- <div class="btn btn-success">
-   <p class="text-left">
-豆瓣douban
-  </p>
- </div>
+<div class="nav navbar-nav"> 
+ <div class="panel panel-default"> 
+<!--<div class="nav navbar-nav navbar-justify">-->
+<ul class="nav nav-pills">
 
-<form class="navbar-form">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="书籍、电影、音乐、小组、小站、成员 " style="background-image:url(icon.gif);background-repeat:no-repeat;background-position:right center">
+<li> 
+<label class="btn btn-success">
+   豆瓣douban
+  </label>
+</li>
+<li>
+
+<form class="form-inline" role="form">
+        
+       <div class="form-group">
+
+        <div class="col-xs-4"> 
+          <input type="text" class="form-control" placeholder="书籍、电影、音乐、小组、小站、成员 " >
         </div>
+      </div>
 </form>
-<ul>
-            <li><h2><a href="#"  class="btn btn-danger">读书</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-primary">电影</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">音乐</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">小组</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">同城</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">FM</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">时间</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">市集</a></h2></li>
 
+</li>
 <!--nav  right bar-->
+<div class="nav navbar-nav navbar-center">
 
-<ul>
             <li><h2><a href="#"  class="btn btn-danger">读书</a></h2></li>
             <li><h2><a href="#"  class="btn btn-primary">电影</a></h2></li>
             <li><h2><a href="#"  class="btn btn-success">音乐</a></h2></li>
@@ -52,21 +54,65 @@
             <li><h2><a href="#"  class="btn btn-success">FM</a></h2></li>
             <li><h2><a href="#"  class="btn btn-success">时间</a></h2></li>
             <li><h2><a href="#"  class="btn btn-success">市集</a></h2></li>
-  
+</div>
 </ul>
 </div>
 </div>
 <!-- nav end-->
+
+<!-- nav end-->
 <!-- middle  panel-->
+ 
+   <div class="panel panel-default" style="background:no-repeat 5px 5px url(https://img3.doubanio.com/f/frodo/cc3adc46a9911fe16b2c9212af2c284a512f3b72/pics/app/pic02.png);"> 
+     <table class="table"> 
+      <tbody>
+       <tr> 
+        <td>
+        <img src="https://img3.doubanio.com/f/frodo/cc3adc46a9911fe16b2c9212af2c284a512f3b72/pics/app/pic02.png" width="404" height="136" />
+       </td> 
+        <td> 
+         <form role="form">
+            <div class="form-group">
+          <label><h2><span>豆瓣</span>&nbsp;5.0&nbsp;</h2>
+         我们的精神角落 
+          </label>
+          <br>
+          <label>
+          <p class="btn btn-success"> 下载豆瓣APP</p> <img src="https://img3.doubanio.com/f/frodo/cb278672a7ed5e611bd06d07592cf865a3f5cd91/pics/app/pin.png" width="40" height="36" /></label>
+            </div> 
+         </form>
+         </td> 
+        <td> 
+         <!--loginForm--> 
+         <div class="loginForm"> 
+          <form method="post">
+            {% csrf_token %} 
+           <div class="form-username"> 
+            <input type="text" name="username" id="phone" class="form-username" value="" placeholder="邮箱/手机号" /> 
+            <input type="text" name="password" id="password" class="form-password" value="" placeholder="密码" /> 
+           </div> 
+           <!--form-buttom--> 
+           <div class="form-buttom"> 
+            <button type="submit" clas="form-buttom1"> 登录豆瓣 </button> 
+            <button type="submit" clas="form-buttom2"> 注册账号 </button> 
+            <div class="checkbox"> 
+             <label> <input type="checkbox" /> 记住我 </label> 
+            </div> 
+           </div> 
+           <img src="https://res.wx.qq.com/connect/zh_CN/htmledition/images/favicon3696b4.ico" /> 
+           <img src="https://weibo.com/favicon.ico" width="24" height="16" //> 
+          </form> 
+         </div>
+         </td> 
+       </tr>   
+      </tbody>
+     </table> 
+    </div> 
+  
    
+  <!-- middle end--> 
 
-
-
-
-
-
-
-<!-- / .container -->
+  <!-- / .container -->
 <!-- 引入BootStrap -->
 <!-- jquery JavaScript -->
 <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
@@ -76,3 +122,5 @@
 </body>
 </html>
 
+ </body>
+</html>
