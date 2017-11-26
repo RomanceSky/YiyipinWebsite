@@ -10,6 +10,8 @@
 <meta name="author" content="">
 <link rel="icon" href="https://img3.doubanio.com/f/frodo/144e6fb7d96701944e7dbb1a9bad51bdb1debe29/pics/app/logo.png">
 
+
+<!--link rel="stylesheet" href="{% static 'Mystyle/css/douban.css' %}"-->
 <meta charset="utf-8">
 
 <title>仿豆瓣首页</title>
@@ -18,46 +20,54 @@
 </head>
 <!-- body content -->
 <body>
-
+<nav class="navbar navbar-inverse">
+  <div class="container">
+           
 <!-- body content nav-->
-<div class="nav navbar-nav"> 
- <div class="panel panel-default"> 
+<div class="panel panel-default"> 
+<div class="nav navbar-nav">  
 <!--<div class="nav navbar-nav navbar-justify">-->
 <ul class="nav nav-pills">
-
-<li> 
-<label class="btn btn-success">
-   豆瓣douban
-  </label>
-</li>
-<li>
-
-<form class="form-inline" role="form">
-        
-       <div class="form-group">
-
-        <div class="col-xs-4"> 
-          <input type="text" class="form-control" placeholder="书籍、电影、音乐、小组、小站、成员 " >
-        </div>
-      </div>
-</form>
-
-</li>
+ <table class="table"> 
+      <tbody>
+       <tr> 
+        <td>
+         <h1>
+           <label class="btn btn-success">
+             豆瓣
+           </label>
+         </h1>
+        </td>
+        <td>   
+         <div>
+          <form class="form-horizontal" role="form">
+           <span><input type="text" style="width:280px; height:35px;"  class="form-control" placeholder="书籍、电影、音乐、小组、小站、成员 " ></span>
+          </form>   
+         </div>
+        </td>
+        <td>
 <!--nav  right bar-->
 <div class="nav navbar-nav navbar-center">
 
-            <li><h2><a href="#"  class="btn btn-danger">读书</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-primary">电影</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">音乐</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">小组</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">同城</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">FM</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">时间</a></h2></li>
-            <li><h2><a href="#"  class="btn btn-success">市集</a></h2></li>
+            <li><h6><a href="#"  class="btn btn-danger">读书</a></h6></li>
+            <li><h6><a href="#"  class="btn btn-primary">电影</a></h6></li>
+            <li><h6><a href="#"  class="btn btn-success">音乐</a></h6></li>
+            <li><h6><a href="#"  class="btn btn-success">小组</a></h6></li>
+            <li><h6><a href="#"  class="btn btn-success">同城</a></h6></li>
+            <li><h6><a href="#"  class="btn btn-success">FM</a></h6></li>
+            <li><h6><a href="#"  class="btn btn-success">时间</a></h6></li>
+            <li><h6><a href="#"  class="btn btn-success">市集</a></h6></li>
 </div>
-</ul>
+        </td>
+  </tr>
+  </tbody>
+  </table>
+  </ul>
+  </div>
+  </div>
+
 </div>
-</div>
+</nav>
 <!-- nav end-->
 
 <!-- nav end-->
@@ -73,7 +83,7 @@
         <td> 
          <form role="form">
             <div class="form-group">
-          <label><h2><span>豆瓣</span>&nbsp;5.0&nbsp;</h2>
+          <label><h6><span>豆瓣</span>&nbsp;5.0&nbsp;</h6>
          我们的精神角落 
           </label>
           <br>
@@ -85,20 +95,22 @@
         <td> 
          <!--loginForm--> 
          <div class="loginForm"> 
-          <form method="post">
+          <form class="form-horizontal" role="form" method="post">
             {% csrf_token %} 
            <div class="form-username"> 
             <input type="text" name="username" id="phone" class="form-username" value="" placeholder="邮箱/手机号" /> 
+          <br>
             <input type="text" name="password" id="password" class="form-password" value="" placeholder="密码" /> 
            </div> 
-           <!--form-buttom--> 
-           <div class="form-buttom"> 
-            <button type="submit" clas="form-buttom1"> 登录豆瓣 </button> 
-            <button type="submit" clas="form-buttom2"> 注册账号 </button> 
-            <div class="checkbox"> 
-             <label> <input type="checkbox" /> 记住我 </label> 
-            </div> 
-           </div> 
+      
+     <!--form-buttom--> 
+      <div class="form-buttom"> 
+         <button type="submit" class="form-buttom2  text-success"> 登录豆瓣 </button>
+          <button type="submit" clas="form-buttom2"> 注册账号 </button> 
+       <div class="checkbox"> 
+         <label> <input type="checkbox" /> 记住我 </label> 
+        </div> 
+      </div> 
            <img src="https://res.wx.qq.com/connect/zh_CN/htmledition/images/favicon3696b4.ico" /> 
            <img src="https://weibo.com/favicon.ico" width="24" height="16" //> 
           </form> 
@@ -111,16 +123,424 @@
   
    
   <!-- middle end--> 
+  <!--middle Picture A-->
+<div class="panel panel-default">
+    <div class="panel-body">
+       <img src="https://img1.doubanio.com/view/dale-online/dale_ad/public/2ac138c72d252b8.jpg" width:"443" height="123">
+    </div>
+</div>
+<!--middle A end-->
 
+<!--main doubanTopic-->
+<div class="panel panel-default">
+    <div class="panel-body">
+     <table class="table"> 
+      <tbody>
+       <tr> 
+        <td>
+        
+        热点内容  · · · · ·  ( <a href="">更多</a>)
+        <div class="row">
+
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/view/photo/albumcover/public/p2505432554.webp"   >
+           <div class="caption">
+            <p><h6>日々是便当（2017） 32张照片</h6></p>
+           </div>
+          </div>
+        </div> 
+      
+      
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/view/photo/albumcover/public/p2363863157.webp">
+           <div class="caption">
+            <p><h6>Lantos Studio Works 27张照片</h6></p>
+           </div>
+          </div>
+        </div>  
+     
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/view/photo/albumcover/public/p2220219198.webp">
+           <div class="caption">
+            <p><h6>岛国十日 43张照片</h6></p>
+           </div>
+          </div>
+        </div> 
+     
+     
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/view/photo/albumcover/public/p2505015850.webp">
+           <div class="caption">
+            <p><h6>真正意义上的旅拍 94张照片</h6></p>
+           </div>
+          </div>
+        </div> 
+    </td>
+    <li><h6><a href=""> 从读书笔记到论文</a></h6></li>
+    拙棘的日记
+    这么些年，我基本的工作形态还是看书、写笔记，写论文都是因为某些外在原因不得已...
+    <li><h6><a href="">小白看画诀窍：如何一眼认出来是哪位大师的作品</a></h6></li>
+    <li><h6><a href="">如何培养自己的镜头感，拍出自然不做作的照片？</a></10></li>
+    <li><h6><a href="">关于Tesla卡车和新Roadster发布的一些看法</a></h6></li>
+    <li><h6><a href="">国宴和汉堡</a></h6></li>
+    <li><h6><a href="">怀念一个逝去的乐手，怀念一种朴素的品质</a></h6></li>
+    <li><h6><a href="">战狼的女人来踢馆了，余男面前谁敢造次？ |《瓣嘴3》第18期</a></h6></li>
+    <li><h6><a href="">专访梅峰：改编老舍作品当然很难，但也从来没想过放弃</a></h6></li>
+    <li><h6><a href="">给爱因斯坦做尸检的那个人，偷走他的大脑并私藏了43年</a></h6></li>
+    <li><h6><a href="">大好头颅 ：（一）谁人砍之</a></h6></li> 
+    </td>
+    <td>
+    <img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/38b0f217cbd8615.jpg">
+          
+    热门话题  · · · · · ·  ( <a href="">去话题广场 </a> )
+
+	<li><h6><a href="">关注红黄蓝幼儿园虐童事件</a></h6></li> 
+	3976人参与
+	<li><h6><a href="">《嘉年华》这样的儿童性侵题材电影有哪些现实意义？</a></h6></li> 
+	2094人参与
+	<li><h6><a href="">黑五什么值得买</a></h6></li> 
+	2242人参与
+	<li><h6><a href="">谁塑造了你的语言</a></h6></li> 
+	<li><h6><a href="">你遣词造句的风格受谁影响最大？ · 284人参与</a></h6></li> 
+	<li><h6><a href="">如何看待刘鑫江歌事件</a></h6></li> 
+	<li><h6><a href="">江歌遇害案庭审在即 · 13084人参与</a></h6></li> 
+	<li><h6><a href="">侦探推理小说史上不可错过的佳作有哪些</a></h6></li> 
+	<li><h6><a href="">从本格派到社会派 · 274人参与</a></h6></li>
+	</td> 
+    </tbody>
+   </table>  
+ </div>
+</div>  
+
+ 
+     
+<!--main doubanTime-->
+<div class="panel panel-default">
+    <div class="panel-body">
+    <h1>豆瓣时间</h1> 热门专栏 ······  ( <a href="">更多  </a> )
+    <table class="table"> 
+      <tbody>
+       <tr> 
+        <td>
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/c092c880-ce6f-11e7-b81b-0242ac110014.png"  width:"170" height:"170">
+           <div class="caption">
+            <p><h6>哲学闪耀时——不一样的西方哲学史
+音频专栏</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/044bb4c8-7688-11e7-b63f-0242ac110028.jpg"   >
+           <div class="caption">
+            <p><h6>一碗茶的款待——日本茶道的形与心</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://qnmob3.doubanio.com/dae/niffler/niffler/images/d3ebd76c-9f78-11e7-b531-0242ac11002d.png?imageView2/1/q/60/w/300/h/300/format/jpg"   >
+           <div class="caption">
+            <p><h6>丹青贵公子——艺苑传奇赵孟頫</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/c3ab871e-2401-11e7-9fe8-0242ac110046.png"   >
+           <div class="caption">
+            <p><h6>邪典电影本纪——亚文化电影50讲</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/f25a3922-97a4-11e7-907c-0242ac110025.png"   >
+           <div class="caption">
+            <p><h6>笔落惊风雨——你不可不知的中国三大名画</h6></p>
+           </div>
+          </div>
+        </div> 
+
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/8a67026e-ba13-11e7-9f54-0242ac110038.png"   >
+           <div class="caption">
+            <p><h6>民谣与台湾故事——胡德夫的音乐时间</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/0f2c7af6-985e-11e7-bca2-0242ac11001b.png"   >
+           <div class="caption">
+            <p><h6>拍张好照片——10分钟搞定旅行摄影</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png"   >
+           <div class="caption">
+            <p><h6>人性皆有裂隙——理解人格的52堂心理课</h6></p>
+           </div>
+          </div>
+        </div> 
+         <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/54d34448-1dea-11e7-afa9-0242ac11002c.jpg"   >
+           <div class="caption">
+            <p><h6>古今——杨照史记百讲</h6></p>
+           </div>
+          </div>
+        </div> 
+         <div class="col-sm-6 col-md-3">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/95667170-874d-11e7-a14f-0242ac110020.png"   >
+           <div class="caption">
+            <p><h6>吃个宋代冰淇淋——随孟晖女史重觅古代生活</h6></p>
+           </div>
+          </div>
+        </div> 
+        </td>
+        </tr>  
+        </tbody>
+     </table> 
+    </div> 
+  </div> 
+     
+
+
+
+
+
+
+<!--main doubanVideo-->
+<h1>视频</h1> <a href="">如是  · · · · · ·  </a> 
+<!--main doubanPlay-->
+<div class="panel panel-default">
+    <div class="panel-body">
+    <h1>豆瓣时间</h1> 热门专栏 ······  ( <a href="">更多  </a> )
+    <table class="table"> 
+      <tbody>
+       <tr> 
+        <td>
+        <li><h6><a href="">影讯&购票</a></h6></li> 
+        <li><h6><a href="">选电影</a></h6></li> 
+        <li><h6><a href="">电视剧</a></h6></li> 
+        <li><h6><a href="">排行榜</a></h6></li> 
+        <li><h6><a href="">分类</a></h6></li> 
+        <li><h6><a href="">影评</a></h6></li>
+        <li><h6><a href="">预告片</a></h6></li> 
+        <li><h6><a href="">问答</a></h6></li>
+        </td>
+        <td>
+        影片分类  · · · · · ·  ( 更多 )
+         <tr>
+         <td>
+            <li><h6><a href="">爱情</a></h6></li> 
+            <li><h6><a href="">喜剧</a></h6></li> 
+            <li><h6><a href="">剧情</a></h6></li> 
+            <li><h6><a href="">动画</a></h6></li> 
+            <li><h6><a href="">科幻</a></h6></li> 
+            &nbsp;
+            <li><h6><a href="">动作</a></h6></li>
+            <li><h6><a href="">经典</a></h6></li> 
+            <li><h6><a href="">悬疑</a></h6></li>
+            <li><h6><a href="">青春</a></h6></li> 
+            <li><h6><a href="">犯罪</a></h6></li> 
+            <li><h6><a href="">惊悚</a></h6></li> 
+            <li><h6><a href="">文艺</a></h6></li> 
+            <li><h6><a href="">搞笑</a></h6></li> 
+            <li><h6><a href="">纪录片</a></h6></li>
+            <li><h6><a href="">励志</a></h6></li> 
+            <li><h6><a href="">战争</a></h6></li>
+            <li><h6><a href="">恐怖</a></h6></li>
+            <li><h6><a href="">黑色幽默美国</a></h6></li> 
+            <li><h6><a href="">日本</a></h6></li>
+            <li><h6><a href="">香港</a></h6></li> 
+            <li><h6><a href="">英国</a></h6></li> 
+            <li><h6><a href="">中国</a></h6></li> 
+            <li><h6><a href="">韩国</a></h6></li> 
+            <li><h6><a href="">法国</a></h6></li> 
+            <li><h6><a href="">台湾</a></h6></li>
+            <li><h6><a href="">中国大陆德国</a></h6></li> 
+            </td>
+            </tr>
+        </td>
+        近期热门  · · · · · ·  ( 更多 )
+        <td>
+          <ul>
+          <li><h6><a href="">小丑回魂</a></h6></li> 
+          <li><h6><a href="">春宵苦短，少女前进吧！</a></h6></li> 
+          <li><h6><a href="">忌日快乐</a></h6></li> 
+          <li><h6><a href="">我能说</a></h6></li> 
+          <li><h6><a href="">神偷联盟</a></h6></li> 
+          <li><h6><a href="">极寒之城</a></h6></li>
+          <li><h6><a href="">星际特工：千星之城</a></h6></li> 
+          <li><h6><a href="">起跑线</a></h6></li>
+          <li><h6><a href="">家族之苦2</a></h6></li>
+          <li><h6><a href="">南汉山城</a></h6></li> 
+          </ul>
+        </td>
+        </tr>
+        </td>
+        </tr>   
+      </tbody>
+     </table> 
+     
+<!-- Picture -->
+<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/dedf70667a21767.jpg">
+
+<!-- Reading -->
+<div class="panel panel-default"> 
+   <div class="panel-body"> 
+    <table class="table"> 
+     <tbody> 
+      <tr> 
+       <td> <h1>读书</h1> <li><h6><a href="">影讯&amp;购票</a></h6></li> <li><h6><a href="">选电影</a></h6></li> <li><h6><a href="">电视剧</a></h6></li> <li><h6><a href="">排行榜</a></h6></li> <li><h6><a href="">分类</a></h6></li> 
+       <li><h6><a href="">影评</a></h6></li> <li><h6><a href="">预告片</a></h6></li> <li><h6><a href="">问答</a></h6></li> 
+       </td> 
+       <td> 
+        <div class="col-sm-6 col-md-3"> 
+         <div class="thumbnail"> 
+          <img src="https://img3.doubanio.com/mpic/s29563532.jpg" class="img-zi" /> 
+         </div> 
+         <div class="caption"> 
+          <h6>少数派报告 〔美〕菲利普...</h6> 
+          <div class="btn-group pull-right"> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+          </div> 
+         </div> 
+        </div> 
+
+        <div class="col-sm-6 col-md-3"> 
+         <div class="thumbnail"> 
+          <img src="https://img3.doubanio.com/mpic/s29574276.jpg" class="img-zi" /> 
+         </div> 
+         <div class="caption"> 
+          <h6>传家之物 〔加〕艾丽丝...</h6> 
+          <div class="btn-group pull-right"> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+          </div> 
+         </div> 
+        </div>
+
+         <div class="col-sm-6 col-md-3"> 
+          <div class="thumbnail">
+           
+           <img src="https://img1.doubanio.com/mpic/s29559698.jpg" class="img-zi" /> 
+          </div> 
+          <div class="caption"> 
+           <h6>终身成长 〔美〕卡罗尔..</h6> 
+           <div class="btn-group pull-right"> 
+            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+           </div> 
+          </div> 
+        </div>
+          <div class="col-sm-6 col-md-3" > 
+           <div class="thumbnail">
+            
+            <img src="https://img1.doubanio.com/view/ark_article_cover/large/public/34760338.jpg?v=1497005530.0" class="img-zi" /> 
+           </div> 
+           <div class="caption"> 
+            <h6>不成问题的问题... 老舍</h6> 
+            <div class="btn-group pull-right"> 
+             <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+             <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+            </div> 
+           </div>
+          </div> 
+
+           <div class="col-sm-6 col-md-3"> 
+            <div class="thumbnail">
+             
+             <img src="https://img3.doubanio.com/view/ark_article_cover/large/public/40980874.jpg?v=1510541197.0" class="img-zi" /> 
+            </div> 
+            <div class="caption"> 
+             <h6>术刀 小刀 0.99元</h6> 
+             <div class="btn-group pull-right"> 
+              <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+              <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+             </div> 
+            </div>
+          </div> 
+
+            <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img3.doubanio.com/view/ark_article_cover/large/public/24350126.jpg?v=1473837321.0" class="img-zi" /> 
+             </div> 
+             <div class="caption"> 
+              <h6>换头人 七弦弹 2.99元</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+
+            <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img3.doubanio.com/view/ark_article_cover/large/public/40534523.jpg?v=1508235137.0" class="img-zi" /> 
+             </div> 
+             <div class="caption"> 
+              <h6>热炕 平静的黄土地 1.99元</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+
+            <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img3.doubanio.com/view/ark_article_cover/large/public/24201216.jpg?v=1508926285.0" class="img-zi" /> 
+             </div> 
+             <div class="caption"> 
+              <h6>病人与它 II... 路大阳 1.99元</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+        </td> 
+       <td> <h6> 热门标签 ( 更多 ) [文学] 小说 随笔 日本文学 散文 诗歌 童话 名著 港台 更多 [流行] 漫画 推理 绘本 青春 科幻 言情 武侠 奇幻 更多 [文化] 历史 哲学 传记 设计 建筑 电影 回忆录 音乐 更多 [生活] 旅行 励志 职场 教育 美食 灵修 健康 家居 更多 [经管] 经济学 管理 商业 金融 营销 理财 股票 企业史 更多 [科技] 科普 互联网 编程 交互设计 算法 通信 神经网络 更多 </h6> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+   </div> 
+  </div>
+<!-- Reading end-->
   <!-- / .container -->
 <!-- 引入BootStrap -->
 <!-- jquery JavaScript -->
-<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery-3.1.1/jquery-3.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery-3.1.1/jquery-3.1.1.js' %}"></script>
+
 <!-- Bootstrap core JavaSScript -->
 <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!--引入 自定义js-->
+
 </body>
 </html>
 
  </body>
 </html>
+
