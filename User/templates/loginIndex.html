@@ -15,59 +15,43 @@
 <!-- Bootstrap core CSS-->
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<!-- body content -->
+
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container">
-           
 <!-- body content nav-->
-<div class="panel panel-default"> 
-<div class="nav navbar-nav">  
-<!--<div class="nav navbar-nav navbar-justify">-->
-<ul class="nav nav-pills">
- <table class="table"> 
-      <tbody>
-       <tr> 
-        <td>
-         <h3>
-           <label class="btn btn-success">
-             豆瓣
-           </label>
-         </h3>
-        </td>
-        <td>   
-         <div>
-          <form class="form-horizontal" role="form">
-           <span><input type="text" style="width:280px; height:35px;"  class="form-control" placeholder="书籍、电影、音乐、小组、小站、成员 " ></span>
-          </form>   
-         </div>
-        </td>
-        <td>
-<!--nav  right bar-->
-<div class="nav navbar-nav navbar-center">
+<div class="Mynav" style="height:80px;">
+<nav class="navbar navbar-default" role="navigation"> 
+    <div class="container-fluid"> 
+    <div class="navbar-header"> 
+        <a class="navbar-brand" href="#">douban</a>
+        <!-- nav with icon-->
+         <img alt="Brand" src="...">
+        <a  href="" class="text-muted">
+            <strong><h3> 豆瓣<h3></strong>
+        </a>
+    </div> 
+    <div> 
+       
+        <form class="navbar-form navbar-left" role="search"> 
+         <div class="form-group"> 
+            <input type="text" class="form-control" style="width:280px;"  placeholder="书籍、电影、音乐、小组、小站、成员 "> 
+         </div> 
+        </form> 
 
-           <li><h6><a href="#"  class="btn btn-danger">读书</a></h6></li>
-           <li><h6><a href="#"  class="btn btn-primary">电影</a></h6></li>
-           <li><h6><a href="#"  class="btn btn-success">音乐</a></h6></li>
-           <li><h6><a href="#"  class="btn btn-success">小组</a></h6></li>
-           <li><h6><a href="#"  class="btn btn-success">同城</a></h6></li>
-           <li><h6><a href="#"  class="btn btn-success">FM</a></h6></li>
-           <li><h6><a href="#"  class="btn btn-success">时间</a></h6></li>
-           <li><h6><a href="#"  class="btn btn-success">市集</a></h6></li>
-</div>
-        </td>
-  </tr>
-  </tbody>
-  </table>
-  </ul>
-  </div>
-  </div>
-
-</div>
-</nav>
-<!-- nav end-->
-
-<!-- nav end-->
+        <p  style="letter-spacing:3px;"> 
+       <ul class="nav navbar-nav navbar-center" >
+           <li><strong><h3><a href="#"  class="text-muted">读书</a></h3></strong></li>
+           <li><strong><h3><a href="#"  class="text-success">电影</a></h3></strong></li>
+           <li><strong><h3><a href="#"  class="text-primary">音乐</a></h3></strong></li>
+           <li><strong><h3><a href="#"  class="text-info">小组</a></h3></strong></li>
+           <li><strong><h3><a href="#"  class="text-warning">同城</a></h3></strong></li>
+           <li><strong><h3><a href="#"  class="text-danger">FM</a></h3></strong></li>
+           <li><strong><h3><a href="#"  class="text-warning">时间</a></h3></strong></li>
+           <li><strong><h3><a href="#"  class="text-success">市集</a></h3></strong></li>
+        </ul> 
+        </p>
+</nav> 
+</div>  
+<!-- body content nav end-->  
 <!-- middle  panel-->
  
    <div class="panel panel-default" style="background:no-repeat 5px 5px url(https://img3.doubanio.com/f/frodo/cc3adc46a9911fe16b2c9212af2c284a512f3b72/pics/app/pic02.png);"> 
@@ -75,7 +59,7 @@
       <tbody>
        <tr> 
         <td>
-        <img src="https://img3.doubanio.com/f/frodo/cc3adc46a9911fe16b2c9212af2c284a512f3b72/pics/app/pic02.png" width="404" height="136" />
+        <img src="https://img3.doubanio.com/f/frodo/cc3adc46a9911fe16b2c9212af2c284a512f3b72/pics/app/pic02.png" height="200" />
        </td> 
         <td> 
          <form role="form">
@@ -85,18 +69,18 @@
           </label>
           <br>
           <label>
-          <p class="btn btn-success"> 下载豆瓣APP</p> <img src="https://img3.doubanio.com/f/frodo/cb278672a7ed5e611bd06d07592cf865a3f5cd91/pics/app/pin.png" width="40" height="36" /></label>
+          <p class="btn btn-success"> 下载豆瓣APP</p> <img src="https://img3.doubanio.com/f/frodo/cb278672a7ed5e611bd06d07592cf865a3f5cd91/pics/app/pin.png" width="20"  /></label>
             </div> 
          </form>
          </td> 
         <td> 
          <!--loginForm--> 
-         <div class="loginForm"> 
+         <div class="form-group "> 
           <form class="form-horizontal" role="form" method="post">
             {% csrf_token %} 
            <div class="form-username"> 
             <input type="text" name="username" id="phone" class="form-username" value="" placeholder="邮箱/手机号" /> 
-          <br>
+         
             <input type="text" name="password" id="password" class="form-password" value="" placeholder="密码" /> 
            </div> 
       
@@ -109,7 +93,7 @@
         </div> 
       </div> 
            <img src="https://res.wx.qq.com/connect/zh_CN/htmledition/images/favicon3696b4.ico" /> 
-           <img src="https://weibo.com/favicon.ico" width="24" height="16" //> 
+           <img src="https://weibo.com/favicon.ico" width="16" height="16" //> 
           </form> 
          </div>
          </td> 
@@ -120,14 +104,9 @@
   
    
   <!-- middle end--> 
-  <!--middle Picture A-->
-<div class="panel panel-default">
-    <div class="panel-body">
-       <img src="https://img1.doubanio.com/view/dale-online/dale_ad/public/2ac138c72d252b8.jpg" width:"443" height="123">
-    </div>
-</div>
-<!--middle A end-->
-
+  <!-- Picture -->
+<img src="https://img1.doubanio.com/view/dale-online/dale_ad/public/2ac138c72d252b8.jpg">
+ <!-- Picture -->
 <!--main doubanTopic-->
 <div class="panel panel-default">
     <div class="panel-body">
@@ -177,49 +156,44 @@
           </div>
         </div> 
     </td>
-    <td>
+      <td>
    <h6><a href=""> 从读书笔记到论文</a></h6></p>
     拙棘的日记
     这么些年，我基本的工作形态还是看书、写笔记，写论文都是因为某些外在原因不得已...
-   <p><h6><a href="">小白看画诀窍：如何一眼认出来是哪位大师的作品</a></h6></p>
-   <p><h6><a href="">如何培养自己的镜头感，拍出自然不做作的照片？</a></10></p>
-   <p><h6><a href="">关于Tesla卡车和新Roadster发布的一些看法</a></h6></p>
-   <p><h6><a href="">国宴和汉堡</a></h6></p>
-   <p><h6><a href="">怀念一个逝去的乐手，怀念一种朴素的品质</a></h6></p>
-   <p><h6><a href="">战狼的女人来踢馆了，余男面前谁敢造次？ |《瓣嘴3》第18期</a></h6></p>
-   <p><h6><a href="">专访梅峰：改编老舍作品当然很难，但也从来没想过放弃</a></h6></p>
-   <p><h6><a href="">给爱因斯坦做尸检的那个人，偷走他的大脑并私藏了43年</a></h6></p>
-   <p><h6><a href="">大好头颅 ：（一）谁人砍之</a></h6></p> 
+   <p><h6><a href="" class="myLink">小白看画诀窍：如何一眼认出来是哪位大师的作品</a></h6></p>
+   <p><h6><a href="" class="myLink">如何培养自己的镜头感，拍出自然不做作的照片？</a></10></p>
+   <p><h6><a href="" class="myLink">关于Tesla卡车和新Roadster发布的一些看法</a></h6></p>
+   <p><h6><a href="" class="myLink">国宴和汉堡</a></h6></p>
+   <p><h6><a href="" class="myLink">怀念一个逝去的乐手，怀念一种朴素的品质</a></h6></p>
+   <p><h6><a href="" class="myLink">战狼的女人来踢馆了，余男面前谁敢造次？ |《瓣嘴3》第18期</a></h6></p>
+   <p><h6><a href="" class="myLink">专访梅峰：改编老舍作品当然很难，但也从来没想过放弃</a></h6></p>
+   <p><h6><a href="" class="myLink">给爱因斯坦做尸检的那个人，偷走他的大脑并私藏了43年</a></h6></p>
+   <p><h6><a href="" class="myLink">大好头颅 ：（一）谁人砍之</a></h6></p> 
     </td>
     <td>
-    <div class="col-sm-6 col-md-3">
-         <div class="thumbnail">  
-    <img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/38b0f217cbd8615.jpg" width="100" height="100">
-     </div>
-        </div> 
+    <img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/38b0f217cbd8615.jpg" width="110" height="110">
           
     热门话题  · · · · · ·  ( <a href="">去话题广场 </a> )
 
-  <p><h6><a href="">关注红黄蓝幼儿园虐童事件</a></h6></p> 
+  <p><h6><a href="" class="myLink">关注红黄蓝幼儿园虐童事件</a></h6></p> 
   3976人参与
-  <p><h6><a href="">《嘉年华》这样的儿童性侵题材电影有哪些现实意义？</a></h6></p> 
+  <p><h6><a href="" class="myLink">《嘉年华》这样的儿童性侵题材电影有哪些现实意义？</a></h6></p> 
   2094人参与
-  <p><h6><a href="">黑五什么值得买</a></h6></p> 
+  <p><h6><a href="" class="myLink">黑五什么值得买</a></h6></p> 
   2242人参与
-  <p><h6><a href="">谁塑造了你的语言</a></h6></p> 
-  <p><h6><a href="">你遣词造句的风格受谁影响最大？ · 284人参与</a></h6></p> 
-  <p><h6><a href="">如何看待刘鑫江歌事件</a></h6></p> 
-  <p><h6><a href="">江歌遇害案庭审在即 · 13084人参与</a></h6></p> 
-  <p><h6><a href="">侦探推理小说史上不可错过的佳作有哪些</a></h6></p> 
-  <p><h6><a href="">从本格派到社会派 · 274人参与</a></h6></p>
+  <p><h6><a href="" class="myLink">谁塑造了你的语言</a></h6></p> 
+  <p><h6><a href="" class="myLink">你遣词造句的风格受谁影响最大？ · 284人参与</a></h6></p> 
+  <p><h6><a href="" class="myLink">如何看待刘鑫江歌事件</a></h6></p> 
+  <p><h6><a href="" class="myLink">江歌遇害案庭审在即 · 13084人参与</a></h6></p> 
+  <p><h6><a href="" class="myLink">侦探推理小说史上不可错过的佳作有哪些</a></h6></p> 
+  <p><h6><a href="" class="myLink">从本格派到社会派 · 274人参与</a></h6></p>
   </td> 
     </tbody>
    </table>  
  </div>
 </div>  
 
- 
-     
+<!--Topic end-->
 <!--main doubanTime-->
 <div class="panel panel-default">
     <div class="panel-body">
@@ -227,11 +201,11 @@
     <table class="table"> 
       <tbody>
        <tr> 
-      <td> <h3>豆瓣时间</h3> 热门专栏 ······  ( <a href="">更多  </a> )</td>
+      <td> <h1>豆瓣时间</h1> 热门专栏 ······  ( <a href="">更多  </a> )</td>
         <td>
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/c092c880-ce6f-11e7-b81b-0242ac110014.png">
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/c092c880-ce6f-11e7-b81b-0242ac110014.png" width="110" height="110">
            <div class="caption">
             <p><h6>哲学闪耀时——不一样的西方哲学史
 音频专栏</h6></p>
@@ -240,7 +214,7 @@
         </div> 
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/044bb4c8-7688-11e7-b63f-0242ac110028.jpg"   >
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/044bb4c8-7688-11e7-b63f-0242ac110028.jpg" width="110" height="110"  >
            <div class="caption">
             <p><h6>一碗茶的款待——日本茶道的形与心</h6></p>
            </div>
@@ -248,7 +222,7 @@
         </div> 
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://qnmob3.doubanio.com/dae/niffler/niffler/images/d3ebd76c-9f78-11e7-b531-0242ac11002d.png?imageView2/1/q/60/w/300/h/300/format/jpg"   >
+          <img src="https://qnmob3.doubanio.com/dae/niffler/niffler/images/d3ebd76c-9f78-11e7-b531-0242ac11002d.png?imageView2/1/q/60/w/300/h/300/format/jpg" width="110" height="110"  >
            <div class="caption">
             <p><h6>丹青贵公子——艺苑传奇赵孟頫</h6></p>
            </div>
@@ -256,7 +230,7 @@
         </div> 
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/c3ab871e-2401-11e7-9fe8-0242ac110046.png"   >
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/c3ab871e-2401-11e7-9fe8-0242ac110046.png" width="110" height="110"  >
            <div class="caption">
             <p><h6>邪典电影本纪——亚文化电影50讲</h6></p>
            </div>
@@ -264,17 +238,15 @@
         </div> 
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/f25a3922-97a4-11e7-907c-0242ac110025.png"   >
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/f25a3922-97a4-11e7-907c-0242ac110025.png" width="110" height="110"  >
            <div class="caption">
             <p><h6>笔落惊风雨——你不可不知的中国三大名画</h6></p>
            </div>
           </div>
         </div> 
-
-       >
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/8a67026e-ba13-11e7-9f54-0242ac110038.png"   >
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/8a67026e-ba13-11e7-9f54-0242ac110038.png"  width="110" height="110" >
            <div class="caption">
             <p><h6>民谣与台湾故事——胡德夫的音乐时间</h6></p>
            </div>
@@ -282,7 +254,7 @@
         </div> 
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/0f2c7af6-985e-11e7-bca2-0242ac11001b.png"   >
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/0f2c7af6-985e-11e7-bca2-0242ac11001b.png" width="110" height="110"  >
            <div class="caption">
             <p><h6>拍张好照片——10分钟搞定旅行摄影</h6></p>
            </div>
@@ -290,41 +262,41 @@
         </div> 
         <div class="col-sm-6 col-md-3">
          <div class="thumbnail">  
-          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png"   >
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/7bea8578-3f69-11e7-8261-0242ac11001b.png" width="110" height="110"  >
            <div class="caption">
             <p><h6>人性皆有裂隙——理解人格的52堂心理课</h6></p>
            </div>
           </div>
         </div> 
-         <div class="col-sm-6 col-md-3">
+         <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/54d34448-1dea-11e7-afa9-0242ac11002c.jpg"   >
+          <img src="https://img1.doubanio.com/dae/niffler/niffler/images/54d34448-1dea-11e7-afa9-0242ac11002c.jpg" width="110" height="110"  >
            <div class="caption">
             <p><h6>古今——杨照史记百讲</h6></p>
            </div>
           </div>
         </div> 
 
-         <div class="col-sm-6 col-md-3">
+         <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/95667170-874d-11e7-a14f-0242ac110020.png"   >
+          <img src="https://img3.doubanio.com/dae/niffler/niffler/images/95667170-874d-11e7-a14f-0242ac110020.png" width="110" height="110"  >
            <div class="caption">
             <p><h6>吃个宋代冰淇淋——随孟晖女史重觅古代生活</h6></p>
            </div>
           </div>
         </div> 
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://m.douban.com/time/column/61?dt_time_source=douban-web_anonymous"   >
+          <img src="https://m.douban.com/time/column/61?dt_time_source=douban-web_anonymous" width="110" height="110"  >
            <div class="caption">
             <p><h6>拍张好照片——10分钟搞定旅行摄影
 图文专栏</h6></p>
            </div>
           </div>
         </div> 
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://m.douban.com/time/column/16?dt_time_source=douban-web_anonymous"   >
+          <img src="https://m.douban.com/time/column/16?dt_time_source=douban-web_anonymous"  width="110" height="110" >
            <div class="caption">
             <p><h6>醒来——北岛和朋友们的诗歌课
 音频专栏</h6></p>
@@ -337,114 +309,76 @@
      </table> 
     </div> 
   </div> 
-     
-
-
-
-
-
-
+<!--main doubanTime end-->     
 <!--main doubanVideo-->
-<!-- Video -->
-
-<div class="panel panel-default"> 
-   <div class="panel-body"> 
+<!--main  doubanVideo-->
+<div class="panel panel-default">
+    <div class="panel-body">
+    
     <table class="table"> 
-     <tbody> 
-      <tr> 
-       <td> <h3>视频</h3> 
-       </td> 
-       <td> 
-       <p>如是  · · · · · ·</p>
-        <div class="col-sm-6 col-md-3"> 
-         <div class="thumbnail"> 
-          <img src="https://img3.doubanio.com/img/files/file-1505369246.jpg" class="img-zi" /> 
-         </div> 
-         <div class="caption"> 
-          <h6>《如是》第十二期丨如是：这是我的路，你的呢？</h6> 
-          <div class="btn-group pull-right"> 
-           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
-           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
-          </div> 
-         </div> 
-        </div> 
+      <tbody>
+       <tr> 
+      <td> <h1>视频</h1> 热门专栏 ······  ( <a href="">如是  · · · · · ·  </a> )</td>
+        <td>
+        <p>
 
-        <div class="col-sm-6 col-md-3"> 
-         <div class="thumbnail"> 
-          <img src="https://img3.doubanio.com/img/files/file-1505369232.jpg" class="img-zi" /> 
-         </div> 
-         <div class="caption"> 
-          <h6>如是》第十一期丨王珮瑜：撕裂的生活很痛，但我喜欢</h6> 
-          <div class="btn-group pull-right"> 
-           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
-           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
-          </div> 
-         </div> 
-        </div>
-
-         <div class="col-sm-6 col-md-3"> 
-          <div class="thumbnail">
-           
-           <img src="https://img1.doubanio.com/img/files/file-1505369217.jpg" class="img-zi" /> 
-          </div> 
-          <div class="caption"> 
-           <h6>《如是》第十期｜西川：凡是能够使我获得再生之感的东西，都是诗意</h6> 
-           <div class="btn-group pull-right"> 
-            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
-            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
-           </div> 
-          </div> 
-        </div>
-        <p>瓣嘴  · · · · · ·</p>
-          <div class="col-sm-6 col-md-3" > 
-           <div class="thumbnail">
-            
-            <img src="https://img3.doubanio.com/img/files/file-1511368070.jpg" class="img-zi" /> 
-           </div> 
-           <div class="caption"> 
-            <h6>战狼的女人来踢馆了，余男面前谁敢造次？</h6> 
-            <div class="btn-group pull-right"> 
-             <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
-             <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
-            </div> 
+        <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/img/files/file-1505369246.jpg" width="110" height="110">
+           <div class="caption">
+            <p><h6>《如是》第十二期丨如是：这是我的路，你的呢？</h6></p>
            </div>
-          </div> 
-
-           <div class="col-sm-6 col-md-3"> 
-            <div class="thumbnail">
-             
-             <img src="https://img3.doubanio.com/img/files/file-1510784235.jpg" class="img-zi" /> 
-            </div> 
-            <div class="caption"> 
-             <h6>“妖孽”影帝现场发车，没想到你是这样的段奕宏 | 《瓣嘴3》第17期</h6> 
-             <div class="btn-group pull-right"> 
-              <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
-              <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
-             </div> 
-            </div>
-          </div> 
-
-            <div class="col-sm-6 col-md-3"> 
-             <div class="thumbnail">
-              
-              <img src="https://img3.doubanio.com/img/files/file-1510210991.jpg" class="img-zi" /> 
-             </div> 
-             <div class="caption"> 
-              <h6>乔杉怼毒评太销魂，实力演绎直男式懵圈 | 《瓣嘴3》第16期</h6> 
-              <div class="btn-group pull-right"> 
-               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
-               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
-              </div> 
-             </div> 
-            </div> 
-        </td> 
-      </tr> 
-     </tbody> 
-    </table> 
-   </div> 
-  </div>
-<!--Video end-->
-
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/img/files/file-1505369232.jpg" width="110" height="110"  >
+           <div class="caption">
+            <p><h6>《如是》第十一期丨王珮瑜：撕裂的生活很痛，但我喜欢</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/img/files/file-1505369217.jpg" width="110" height="110">
+           <div class="caption">
+            <p><h6>《如是》第十期｜西川：凡是能够使我获得再生之感的东西，都是诗意</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img1.doubanio.com/img/files/file-1505369217.jpg" width="110" height="110"  >
+           <div class="caption">
+            <p><h6>>战狼的女人来踢馆了，余男面前谁敢造次？</h6></p>
+           </div>
+          </div>
+        </div> 
+       
+        瓣嘴  · · · · · ·
+        <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/img/files/file-1510784235.jpg" width="110" height="110"  >
+           <div class="caption">
+            <p><h6>“妖孽”影帝现场发车，没想到你是这样的段奕宏 | 《瓣嘴3》第17期</h6></p>
+           </div>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/img/files/file-1510210991.jpg" width="110" height="110"  >
+           <div class="caption">
+            <p><h6>乔杉怼毒评太销魂，实力演绎直男式懵圈 | 《瓣嘴3》第16期</h6></p>
+           </div>
+          </div>
+        </div> 
+        </td>
+        </tr>  
+        </tbody>
+     </table> 
+    </div> 
+  </div> 
+<!--main  doubanVideo end-->     
 
 
 
@@ -452,7 +386,7 @@
 <!--main doubanPlay-->
 <div class="panel panel-default">
     <div class="panel-body">
-    <h3>豆瓣时间</h3> 热门专栏 ······  ( <a href="">更多  </a> )
+    <h1>电影</h1> 
     <table class="table"> 
       <tbody>
        <tr> 
@@ -466,95 +400,102 @@
        <p><h6><a href="">预告片</a></h6></p> 
        <p><h6><a href="">问答</a></h6></p>
         </td>
-        <td>
+                <td>
+    <a href=""> 正在热映  · · · · · ·</a>  (<a href=""> 更多 </a>)
         <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2503997609.webp"  width:"170" height:"170">
+          <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2503997609.webp" width="110" height="110">
            <div class="caption">
             <p><h6>寻梦环游记
-9.3</h6></p>
-    <button class="">选座购票</button>
-           </div>
-          </div>
-        </div> 
-        <div class="col-sm-6 col-md-4">
-         <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2505701555.webp"   >
-           <div class="caption">
-            <p><h6>垫底联盟
-暂无评分</h6></p> <button class="">选座购票</button>
-   
-           </div>
-          </div>
-        </div> 
-        <div class="col-sm-6 col-md-4">
-         <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504804074.webp"   >
-           <div class="caption">
-            <p><h6>星期8
-暂无评分</h6></p> <button class="">选座购票</button>
-           </div>
-          </div>
-        </div> 
-        <div class="col-sm-6 col-md-4">
-         <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504027804.webp"   >
-           <div class="caption">
-            <p><h6>正义联盟
-6.8</h6></p><button class="">选座购票</button>
+寻梦环游记
+9.3
+<span class="btn btn-success">选座购票</span></h6></p>
            </div>
           </div>
         </div> 
 
-        <div class="col-sm-6 col-md-4">
+         <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504984545.webp">
+          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2505701555.webp" width="110" height="110">
+           <div class="caption">
+            <p><h6>垫底联盟
+暂无评分
+<span class="btn btn-success">选座购票</span></h6></p>
+           </div>
+          </div>
+        </div> 
+
+
+           <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504804074.webp" width="110" height="110">
+           <div class="caption">
+            <p><h6>星期8
+暂无评分
+<span class="btn btn-success">选座购票</span></h6></p>
+           </div>
+          </div>
+        </div> 
+         <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504027804.webp" width="110" height="110">
+           <div class="caption">
+            <p><h6>正义联盟
+6.8
+<span class="btn btn-success">选座购票</span></h6></p>
+           </div>
+          </div>
+        </div> 
+
+
+
+           <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">  
+          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504984545.webp" width="110" height="110">
            <div class="caption">
             <p><h6>追捕
 4.8
-9.3</h6></p>
-    <button class="">选座购票</button>
+<span class="btn btn-success">选座购票</span></h6></p>
            </div>
           </div>
         </div> 
-        <div class="col-sm-6 col-md-4">
+         <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2503578746.webp"   >
+          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2503578746.webp" width="110" height="110">
            <div class="caption">
-            <p><h6>垫引爆者
-6.7</h6></p> <button class="">选座购票</button>
-   
+            <p><h6>引爆者
+6.7
+<span class="btn btn-success">选座购票</span></h6></p>
            </div>
           </div>
         </div> 
-        <div class="col-sm-6 col-md-4">
+
+
+           <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2503644828.webp"   >
+          <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2503644828.webp" width="110" height="110">
            <div class="caption">
             <p><h6>嘉年华
-8.6</h6></p> <button class="">选座购票</button>
+8.6
+<span class="btn btn-success">选座购票</span></h6></p>
            </div>
           </div>
         </div> 
-        <div class="col-sm-6 col-md-4">
+         <div class="col-sm-6 col-md-4">
          <div class="thumbnail">  
-          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504455660.webp"   >
+          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2500451074.webp" width="110" height="110">
            <div class="caption">
-            <p><h6>烟花
-5.6
-6.8</h6></p><button class="">选座购票</button>
+            <p><h6>雷神3：诸神黄...
+7.5
+<span class="btn btn-success">选座购票</span></h6></p>
            </div>
           </div>
         </div> 
-
-    
-
         </td>
         <td>
         影片分类  · · · · · ·  ( 更多 )
-        
-         <td> 
-         <p>
+         <tr>
+         <td>
            <p><h6><a href="">爱情</a></h6>
            <h6><a href="">喜剧</a></h6>
            <h6><a href="">剧情</a></h6>
@@ -582,8 +523,12 @@
           <h6><a href="">法国</a></h6>
           <h6><a href="">台湾</a></h6>
           <h6><a href="">中国大陆德国</a></h6></p> 
-           <p>
-           <h3> 近期热门 · · · · · · </h3> <a href="">更多  </a> 
+            </td>
+            </tr>
+         
+          <tr>
+          <td>
+           <h1> 近期热门 · · · · · · </h1> <a href="">更多  </a> 
           <ol>
          <p><h6><a href="">小丑回魂</a></h6></p> 
          <p><h6><a href="">春宵苦短，少女前进吧！</a></h6></p> 
@@ -596,32 +541,236 @@
          <p><h6><a href="">家族之苦2</a></h6></p>
          <p><h6><a href="">南汉山城</a></h6></p> 
          </ol>
-          
-       
+           </td>
+           </tr>
+        </td>
+        </tr>
         </td>
         </tr>   
       </tbody>
      </table> 
-  <!--小组-->
+<!--main doubanPlay end--> 
+<!--Picture-->
+<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/d06a7b34f11e69b.jpg">
+<!--Picture-->
+<!-- Group  -->
 <div class="panel panel-default"> 
    <div class="panel-body"> 
     <table class="table"> 
      <tbody> 
       <tr>
-
-       <td> <h3>小组</h3><p><h6><a href=""> 精选</a></h6></p><p><h6><a href="">文化</a></h6></p>
+       <td> <h5>小组</h5><p><h6><a href=""> 精选</a></h6></p><p><h6><a href="">文化</a></h6></p>
        <p><h6><a href="">行摄</a></h6></p><p><h6><a href="">娱乐</a></h6></p><p><h6><a href="">时尚</a></h6></p> 
-      <p><h6><a href="">生活</a></h6></p><p><h6><a href="">科技</a></h6></p><p><h6><a href="">问答</a></h6></p> 
+      <p><h6><a href="">
+生活</a></h6></p><p><h6><a href="">科技</a></h6></p>
+       </td> 
+       <td> 
+  <h6>
+热门小组  · · · · · ·  ( 更多 )
+</h6>
+        <div class="col-sm-6 col-md-3"> 
+         <div class="thumbnail"> 
+          <img src="https://img3.doubanio.com/icon/g407193-15.jpg" class="img-zi" width="48"/> 
+         </div> 
+         <div class="caption"> 
+          <h6>
+帮帮组™加入这个组就有人帮你了！
+15352 个成员
+</h6> 
+          <div class="btn-group pull-right"> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+          </div> 
+         </div> 
+        </div> 
+
+        <div class="col-sm-6 col-md-3"> 
+         <div class="thumbnail"> 
+          <img src="https://img3.doubanio.com/icon/g10083-4.jpg" class="img-zi" width="48"/> 
+         </div> 
+         <div class="caption"> 
+          <h6>我爱三毛
+44483 个成员</h6> 
+          <div class="btn-group pull-right"> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+           <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+          </div> 
+         </div> 
+        </div>
+
+         <div class="col-sm-6 col-md-3"> 
+          <div class="thumbnail">
+           
+           <img src="https://img1.doubanio.com/icon/g210869-9.jpg" class="img-zi" width="48"/> 
+          </div> 
+          <div class="caption"> 
+           <h6>沙发客
+22090 个成员</h6> 
+           <div class="btn-group pull-right"> 
+            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+           </div> 
+          </div> 
+        </div>
+          <div class="col-sm-6 col-md-3" > 
+           <div class="thumbnail">
+            
+            <img src="https://img1.doubanio.com/icon/g37688-27.jpg" class="img-zi" width="48"/> 
+           </div> 
+           <div class="caption"> 
+            <h6>刘慈欣
+22568 个成员</h6> 
+            <div class="btn-group pull-right"> 
+             <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+             <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+            </div> 
+           </div>
+          </div> 
+
+           <div class="col-sm-6 col-md-3"> 
+            <div class="thumbnail">
+             
+             <img src="https://img3.doubanio.com/icon/g20618-4.jpg" class="img-zi" width="48"/> 
+            </div> 
+            <div class="caption"> 
+             <h6>西双版纳
+10407 个成员</h6> 
+             <div class="btn-group pull-right"> 
+              <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+              <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+             </div> 
+            </div>
+          </div> 
+
+            <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img1.doubanio.com/icon/g37688-27.jpg" class="img-zi" width="48"/> 
+             </div> 
+             <div class="caption"> 
+              <h6>记事本圆梦小组
+109957 个成员</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+
+            <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img3.doubanio.com/icon/g20618-4.jpg" class="img-zi" width="48"/> 
+             </div> 
+             <div class="caption"> 
+              <h6>搭讪学
+93385 个成员</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+
+            <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img1.doubanio.com/icon/g170177-27.jpg" class="img-zi" width="48"/> 
+             </div> 
+             <div class="caption"> 
+              <h6>这辈子一定要做几件疯狂的事
+91730 个成员</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+           <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img3.doubanio.com/icon/g83759-2.jpg" class="img-zi" width="48"/> 
+             </div> 
+             <div class="caption"> 
+              <h6>我们就是要做衣服给自己穿
+3823 个成员</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+             <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img3.doubanio.com/icon/g109498-1.jpg" class="img-zi" width="48"/> 
+             </div> 
+             <div class="caption"> 
+              <h6>自己给自己剪头发
+31702 个成员</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+             <div class="col-sm-6 col-md-3"> 
+             <div class="thumbnail">
+              
+              <img src="https://img1.doubanio.com/icon/g362263-7.jpg" class="img-zi" width="48"/> 
+             </div> 
+             <div class="caption"> 
+              <h6>对象太他妈难找了党-单身凸^-^凸
+15536 个成员</h6> 
+              <div class="btn-group pull-right"> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
+               <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
+              </div> 
+             </div> 
+            </div> 
+
+
+
+
+        </td> 
+       <td> 
+       <h6>
+      <h6><a> 小组分类  · · · · · ·</a></h6>
+
+<p><a> 兴趣» </a>旅行 摄影 影视 音乐 文学 游戏 动漫 运动 戏曲 桌游 怪癖</p>
+<p><a> 生活» </a>健康 美食 宠物 美容 化妆 护肤 服饰 公益 家庭 育儿 汽车</p>
+<p><a> 购物» </a>淘宝 二手 团购 数码 品牌 文具</p>
+<p><a> 社会» </a>求职 租房 励志 留学 出国 理财 传媒 创业 考试</p>
+<p><a> 艺术» </a>设计 手工 展览 曲艺 舞蹈 雕塑 纹身</p>
+<p><a> 学术»</a> 人文 社科 自然 建筑 国学 语言 宗教 哲学 软件 硬件 互联网</p>
+<p><a> 情感» </a>恋爱 心情 心理学 星座 塔罗 LES GAY</p>
+<p><a> 闲聊» </a>吐槽 笑话 直播 八卦 发泄</p>
+
+       
+        </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+   </div> 
+  </div>
+<!-- Group end-->
+
+<!-- Reading -->
+<div class="panel panel-default"> 
+   <div class="panel-body"> 
+    <table class="table"> 
+     <tbody> 
+      <tr> 
+       <td> <h1>读书</h1><p><h6><a href="">影讯&amp;购票</a></h6></p><p><h6><a href="">选电影</a></h6></p><p><h6><a href="">电视剧</a></h6></p><p><h6><a href="">排行榜</a></h6></p><p><h6><a href="">分类</a></h6></p> 
+      <p><h6><a href="">影评</a></h6></p><p><h6><a href="">预告片</a></h6></p><p><h6><a href="">问答</a></h6></p> 
        </td> 
        <td> 
         <div class="col-sm-6 col-md-3"> 
          <div class="thumbnail"> 
-          <img src="https://img3.doubanio.com/mpic/s29563532.jpg" class="img-zi" /> 
+          <img src="https://img3.doubanio.com/mpic/s29563532.jpg" class="img-zi"  /> 
          </div> 
          <div class="caption"> 
-          <h6>热门小组  · · · · · ·  ( 更多 )
-
-</h6> 
+          <h6>少数派报告 〔美〕菲利普...</h6> 
           <div class="btn-group pull-right"> 
            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="laoreet rutrum faucibus." id="ps"><i class="glyphicon glyphicon-print"></i></a> 
            <a href="#" class="btn btn-success btn-xs" data-trigger="hover" data-toggle="s" data-placement="top" data-content="laoreet rutrum faucibus."><i class="glyphicon glyphicon-comment"></i></a> 
@@ -725,38 +874,21 @@
              </div> 
             </div> 
         </td> 
-       <td> <h6> 热门标签 ( 更多 ) [文学] 小说 随笔 日本文学 散文 诗歌 童话 名著 港台 更多 [流行] 漫画 推理 绘本 青春 科幻 言情 武侠 奇幻 更多 [文化] 历史 哲学 传记 设计 建筑 电影 回忆录 音乐 更多 [生活] 旅行 励志 职场 教育 美食 灵修 健康 家居 更多 [经管] 经济学 管理 商业 金融 营销 理财 股票 企业史 更多 [科技] 科普 互联网 编程 交互设计 算法 通信 神经网络 更多 </h6> </td> 
+       <td> <h6>热门标签  · · · · · ·  ( 更多 )
+
+<p>[文学] 小说 随笔 日本文学 散文 诗歌 童话 名著 港台 更多</p>
+<p>[流行] 漫画 推理 绘本 青春 科幻 言情 武侠 奇幻 更多</p>
+<p>[文化] 历史 哲学 传记 设计 建筑 电影 回忆录 音乐 更多</p>
+<p>[生活] 旅行 励志 职场 教育 美食 灵修 健康 家居 更多</p>
+<p>[经管] 经济学 管理 商业 金融 营销 理财 股票 企业史 更多</p>
+<p>[科技] 科普 互联网 编程 交互设计 算法 通信 神经网络 更多</p></h6> </td> 
       </tr> 
      </tbody> 
     </table> 
    </div> 
   </div>
-<!-- 小组 end-->   
-<!-- Picture -->
-<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/dedf70667a21767.jpg" width="400">
+<!-- Reading end-->
 
-<!-- Reading -->
-<div class="panel panel-default"> 
-   <div class="panel-body"> 
-    <table class="table"> 
-     <tbody> 
-      <tr> 
-       <td> <h3>读书</h3><p><h6><a href="">影讯&amp;购票</a></h6></p><p><h6><a href="">选电影</a></h6></p><p><h6><a href="">电视剧</a></h6></p><p><h6><a href="">排行榜</a></h6></p><p><h6><a href="">分类</a></h6></p> 
-      <p><h6><a href="">影评</a></h6></p><p><h6><a href="">预告片</a></h6></p><p><h6><a href="">问答</a></h6></p> 
-       </td> 
-       <td> 
-        
-       <td> 
-    
-       <h6>
-        
-
-
-
-
-
-<!-- Picture -->
-<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/dedf70667a21767.jpg">
 
 <!-- Music -->
 <div class="panel panel-default"> 
@@ -764,14 +896,14 @@
     <table class="table"> 
      <tbody> 
       <tr> 
-       <td> <h3>音乐</h3><p><h6><a href="">音乐人</a></h6></p><p><h6><a href="">潮潮豆瓣音乐周</a></h6></p>
+       <td> <h1>音乐</h1><p><h6><a href="">音乐人</a></h6></p><p><h6><a href="">潮潮豆瓣音乐周</a></h6></p>
        <p><h6><a href="">金羊毛计划</a></h6></p><p><h6><a href="">专题</a></h6></p><p><h6><a href="">排行榜</a></h6></p> 
       <p><h6><a href="">分类浏览</a></h6></p><p><h6><a href="">乐评</a></h6></p><p><h6><a href="">豆瓣FM</a></h6></p> 
       <p><h6><a href="">歌单</a></h6></p> <p><h6><a href="">阿比鹿音乐奖</a></h6></p> 
        </td> 
        <td> 
        豆瓣新碟榜  · · · · · ·  ( 更多)
-        <div class="col-sm-3 col-md-3"> 
+        <div class="col-sm-6 col-md-3"> 
          <div class="thumbnail"> 
           <img src="https://img1.doubanio.com/spic/s29595319.jpg" class="img-zi" /> 
          </div> 
@@ -786,7 +918,7 @@
          </div> 
         </div> 
 
-        <div class="col-sm-3 col-md-3"> 
+        <div class="col-sm-6 col-md-3"> 
          <div class="thumbnail"> 
           <img src="https://img1.doubanio.com/spic/s29599018.jpg" class="img-zi" /> 
          </div> 
@@ -801,7 +933,7 @@
          </div> 
         </div>
 
-         <div class="col-sm-3 col-md-3"> 
+         <div class="col-sm-6 col-md-3"> 
           <div class="thumbnail">
            
            <img src="https://img3.doubanio.com/spic/s29611306.jpg" class="img-zi" /> 
@@ -816,7 +948,7 @@
            </div> 
           </div> 
         </div>
-          <div class="col-sm-3 col-md-3" > 
+          <div class="col-sm-6 col-md-3" > 
            <div class="thumbnail">
             
             <img src="https://img1.doubanio.com/spic/s29611508.jpg" class="img-zi" /> 
@@ -832,7 +964,7 @@
            </div>
           </div> 
 
-           <div class="col-sm-3 col-md-3"> 
+           <div class="col-sm-6 col-md-3"> 
             <div class="thumbnail">
              
              <img src="https://img1.doubanio.com/spic/s29544798.jpg" class="img-zi" /> 
@@ -848,7 +980,7 @@ Taylor Swift
             </div>
           </div> 
 
-            <div class="col-sm-3 col-md-3"> 
+            <div class="col-sm-6 col-md-3"> 
              <div class="thumbnail">
               
               <img src="https://img1.doubanio.com/spic/s29587447.jpg" class="img-zi" /> 
@@ -864,7 +996,7 @@ Sia
              </div> 
             </div> 
 
-            <div class="col-sm-3 col-md-3"> 
+            <div class="col-sm-6 col-md-3"> 
              <div class="thumbnail">
               
               <img src="https://img3.doubanio.com/spic/s29611653.jpg" class="img-zi" /> 
@@ -880,7 +1012,7 @@ RED VELVET
              </div> 
             </div> 
 
-            <div class="col-sm-3 col-md-3"> 
+            <div class="col-sm-6 col-md-3"> 
              <div class="thumbnail">
               
               <img src="https://img3.doubanio.com/spic/s29567684.jpg" class="img-zi" /> 
@@ -984,11 +1116,11 @@ RED VELVET
 
         </td> 
        <td> 
-       <h3> 本周流行音乐人  · · · · · ·  ( 更多 )</h3> 
+       <h1> 本周流行音乐人  · · · · · ·  ( 更多 )</h1> 
        <ol>
        <li>
          <h6>    
-         <img src="https://img3.doubanio.com/spic/s29567684.jpg" class="img-zi" /> 
+         <img src="https://img3.doubanio.com/spic/s29567684.jpg" class="img-zi" width="48"/> 
           <span>放肆的肆
           流派: 流行 Pop 
           96882人关注
@@ -1003,12 +1135,6 @@ RED VELVET
    </div> 
   </div>
 <!--Music end-->
-
-
-
-<!-- Picture -->
-<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/dedf70667a21767.jpg">
-
 <!-- Store street -->
 <div class="panel panel-default"> 
    <div class="panel-body"> 
@@ -1016,7 +1142,7 @@ RED VELVET
      <tbody> 
       <tr> 
        <td> 
-       <h3>市集</h3><p><h6><a href="">美食</a></h6></p><p><h6><a href="">服装</a></h6></p>
+       <h1>市集</h1><p><h6><a href="">美食</a></h6></p><p><h6><a href="">服装</a></h6></p>
        <p><h6><a href="">配饰</a></h6></p><p><h6><a href="">包袋</a></h6></p><p><h6><a href="">鞋靴</a></h6></p> 
       <p><h6><a href="">美容护肤</a></h6></p><p><h6><a href="">家居生活</a></h6></p>
        </td> 
@@ -1024,7 +1150,7 @@ RED VELVET
        热门商品  · · · · · ·  ( 更多 )
         <div class="col-sm-6 col-md-3"> 
          <div class="thumbnail"> 
-          <img src="https://img1.doubanio.com/view/dianpu_product_item/medium/public/p1982227.jpg" class="img-zi" /> 
+          <img src="https://img1.doubanio.com/view/dianpu_product_item/medium/public/p1982227.jpg" class="img-zi" width="110" height="110"/> 
          </div> 
          <div class="caption"> 
           <h6></h6> 
@@ -1037,7 +1163,7 @@ RED VELVET
 
         <div class="col-sm-6 col-md-2"> 
          <div class="thumbnail"> 
-          <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p458880.jpg" class="img-zi" /> 
+          <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p458880.jpg" class="img-zi" width="110" height="110"/> 
          </div> 
          <div class="caption"> 
           <h6>
@@ -1052,7 +1178,7 @@ RED VELVET
          <div class="col-sm-6 col-md-3"> 
           <div class="thumbnail">
            
-           <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p270364.jpg" class="img-zi" /> 
+           <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p270364.jpg" class="img-zi" width="110" height="110"/> 
           </div> 
           <div class="caption"> 
            <h6>多功能U型枕 贴心护颈枕
@@ -1066,7 +1192,7 @@ RED VELVET
           <div class="col-sm-6 col-md-3" > 
            <div class="thumbnail">
             
-            <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p521646.jpg" class="img-zi" /> 
+            <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p521646.jpg" class="img-zi" width="110" height="110"/> 
            </div> 
            <div class="caption"> 
             <h6> PISN  秋冬羊毛混纺不掉毛超软短款套头加粗长袖毛衣针</h6> 
@@ -1094,7 +1220,7 @@ RED VELVET
             <div class="col-sm-6 col-md-3"> 
              <div class="thumbnail">
               
-              <img src="https://img1.doubanio.com/spic/s29587447.jpg" class="img-zi" /> 
+              <img src="https://img1.doubanio.com/spic/s29587447.jpg" class="img-zi" width="110" height="110"/> 
              </div> 
              <div class="caption"> 
               <h6>6. Everyday Is Christmas
@@ -1124,7 +1250,7 @@ Sia
             <div class="col-sm-6 col-md-3"> 
              <div class="thumbnail">
               
-              <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p377790.jpg" class="img-zi" /> 
+              <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p377790.jpg" class="img-zi" width="110" height="110"/> 
              </div> 
              <div class="caption"> 
               <h6>十四行诗 原味台湾手工黑糖</h6> 
@@ -1138,7 +1264,7 @@ Sia
             <div class="col-sm-6 col-md-3"> 
              <div class="thumbnail">
               
-              <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p458880.jpg" class="img-zi" /> 
+              <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p458880.jpg" class="img-zi" width="110" height="110"/> 
              </div> 
              <div class="caption"> 
               <h6>木马逐风Mazur“三茶六味”牛轧糖礼盒</h6> 
@@ -1152,7 +1278,7 @@ Sia
    <div class="col-sm-6 col-md-3"> 
              <div class="thumbnail">
               
-              <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p270364.jpg" class="img-zi" /> 
+              <img src="https://img3.doubanio.com/view/dianpu_product_item/medium/public/p270364.jpg" class="img-zi" width="110" height="110"/> 
              </div> 
              <div class="caption"> 
               <h6>
@@ -1167,17 +1293,17 @@ Sia
 
         </td> 
        <td> 
-       <h3> 热门店铺  · · · · · ·  ( 更多 )</h3> 
+       <h5> <a>热门店铺  · · · · · · </a> ( 更多 )</h5> 
        <p>
          <h6>    
-         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/2e35f89d2c7990d.jpg" class="img-zi" /> 
+         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/2e35f89d2c7990d.jpg" class="img-zi"  width="48"/> 
           <span>ERICD原创设计以传统服装制作工艺为主导，结合当下最流行的...
           </span>
           </h6> 
        </p>
        <p>
          <h6>    
-         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/9d03efbf705887d.jpg" class="img-zi" /> 
+         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/9d03efbf705887d.jpg" class="img-zi"  width="48"/> 
           <span>PISN
 每周五定时上新，注意关注偶
           </span>
@@ -1185,7 +1311,7 @@ Sia
        </p>
         <p>
          <h6>    
-         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/169b1b76356f636.jpg" class="img-zi" /> 
+         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/169b1b76356f636.jpg" class="img-zi"  width="48"/> 
           <span>Nanaz 家居百货
 不用装修，NaNaZ home 也能你家变得更美一些。
           </span>
@@ -1193,7 +1319,7 @@ Sia
        </p>
        <p>
          <h6>    
-         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/7f37444b0a6a0e2.jpg" class="img-zi" /> 
+         <img src="https://img3.doubanio.com/view/dianpu_shop_icon/medium/public/7f37444b0a6a0e2.jpg" class="img-zi" width="48"/> 
           <span>黄小姐
 卖我会穿的打底，做你会爱的姑娘
           </span>
@@ -1206,9 +1332,9 @@ Sia
    </div> 
   </div>
 <!-- Store street  end-->
-
 <!-- Picture -->
-<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/dedf70667a21767.jpg">
+<img src="https://img1.doubanio.com/view/dale-online/dale_ad/public/2ac138c72d252b8.jpg">
+<!-- Picture -->
 
 <!-- City -->
 <div class="panel panel-default"> 
@@ -1217,7 +1343,7 @@ Sia
      <tbody> 
       <tr>
        <td> 
-       <h3>同城</h3>
+       <h1>同城</h1>
        <p><h6><a href="">近期活动</a></h6></p><p><h6><a href="">主办方</a></h6></p>
        <p><h6><a href="">舞台剧</a></h6></p><p><h6><a href="">2016舞台剧榜单</a></h6></p>
        </td> 
@@ -1289,7 +1415,7 @@ Sia
           </div> 
 
        <td> 
-       <h3> 活动标签  · · · · · ·</h3> 
+       <h1> 活动标签  · · · · · ·</h1> 
       
          <h6>    
           <span>音乐» 小型现场 音乐会 演唱会 音乐节
@@ -1301,42 +1427,52 @@ Sia
           </h6> 
        
         </td> 
-      </tr> 
+     </tr> 
      </tbody> 
     </table> 
-   </div> 
+   </div>  
   </div>
 <!--  City end-->
-<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/f54d60091eab809.jpg" class="img-zi" /> 
-<!-- Music -->
+<!-- Picture -->
+<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/dedf70667a21767.jpg" >
+
+<!-- Picture -->
+<!-- Footer -->
 <div class="panel panel-default"> 
    <div class="panel-body"> 
     <table class="table"> 
      <tbody> 
       <tr> 
        <td>
-       <span>© 2005－2017 douban.com, all rights reserved 北京豆网科技有限公司 
-京ICP证090015号 京ICP备11027288号 网络视听许可证0110418号 
-京网文[2015]2026-368号  京公网安备11010502000728  新出网证(京)字129号 
-违法和不良信息举报电话：4008353331  
- 中国互联网举报中心 电话：12377 《食品流通许可证》许可证：SP1101051510347287 
-新出发京批字第直160029号</span>
+       <span>
+       <p>© 2005－2017 douban.com, all rights reserved 北京豆网科技有限公司    </p>
+   <p>京ICP证090015号 京ICP备11027288号 网络视听许可证0110418号  </p>
+   <p>京网文[2015]2026-368号  京公网安备11010502000728  新出网证(京)字129号 </p> 
+   <p>违法和不良信息举报电话：4008353331   </p>
+   <p> 中国互联网举报中心 电话：12377 《食品流通许可证》许可证：SP1101051510347287  </p>
+   <p>新出发京批字第直160029号 </p></span>
       </td>
       <td>
       <span class="fright">
-    <a href="">关于豆瓣</a>
+    <p> <a href="">关于豆瓣</a>
     <a href="">在豆瓣工作</a>
     <a href="">联系我们</a>
     <a href="">免责声明</a>
     
     <a href="" target="_blank">帮助中心</a>
     <a href="">移动应用</a>
-    <a href="">豆瓣广告</a>
+    <a href="">豆瓣广告</a></p>
     <a href="" target="_blank" style="display: block; margin-top: 20px; width: 150px">
       <img src="https://img3.doubanio.com/img/files/file-1489464722.jpg" alt="网上有害信息举报专区">
     </a>
-</span>
+</span> 
       </td>
+        </tr> 
+     </tbody> 
+    </table> 
+   </div>  
+  </div>
+
   <!-- / .container -->
 <!-- 引入BootStrap -->
 <!-- jquery JavaScript -->
@@ -1353,3 +1489,76 @@ Sia
  </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- / .container -->
+
+<!-- 引入BootStrap -->
+<!-- jquery JavaScript -->
+<script type="text/javascript" src="{% static 'jquery-3.1.1/jquery-3.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery-3.1.1/jquery-3.1.1.js' %}"></script>
+
+<!-- Bootstrap core JavaSScript -->
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<!--引入 自定义js-->
+
+</body>
+</html>
