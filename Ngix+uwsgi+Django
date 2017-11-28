@@ -1,2 +1,40 @@
 (venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# pip install uwsgi
 Requirement already satisfied: uwsgi in /root/learn/virtualenv/venvSOA/lib/python2.7/site-packages
+
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# pip install uwsgi
+Requirement already satisfied: uwsgi in /root/learn/virtualenv/venvSOA/lib/python2.7/site-packages
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# uwsgi --version  
+2.0.15
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# vi test.py
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# uwsgi --http :8001 --wsgi-file test.py
+*** Starting uWSGI 2.0.15 (64bit) on [Tue Nov 28 21:06:20 2017] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-11) on 17 November 2017 11:22:04
+os: Linux-3.10.0-514.26.2.el7.x86_64 #1 SMP Tue Jul 4 15:04:05 UTC 2017
+nodename: izwz9hbv3lrr68d8bo5dvpz
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /root/M_Arts
+detected binary path: /root/learn/virtualenv/venvSOA/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3889
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8001 fd 4
+spawned uWSGI http 1 (pid: 9492)
+uwsgi socket 0 bound to TCP address 127.0.0.1:40162 (port auto-assigned) fd 3
+Python version: 2.7.5 (default, Nov  6 2016, 00:28:07)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1047d70
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72768 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1047d70 pid: 9491 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 9491, cores: 1)
