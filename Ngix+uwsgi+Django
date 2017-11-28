@@ -1,0 +1,2 @@
+(venvSOA) [root@izwz9hbv3lrr68d8bo5dvpz M_Arts]# pip install uwsgi
+Requirement already satisfied: uwsgi in /root/learn/virtualenv/venvSOA/lib/python2.7/site-packages
