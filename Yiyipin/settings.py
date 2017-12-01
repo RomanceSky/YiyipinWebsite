@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'Video',
     'blog',
     'User',
-    'Dushu',
+    'Reading',
 
 )
 

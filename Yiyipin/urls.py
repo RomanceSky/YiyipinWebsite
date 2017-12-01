@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+#my
+
+from django.views.generic import TemplateView
+
 #urlpatterns = [
  #   url(r'^admin/', include(admin.site.urls)),
 #]
@@ -29,5 +33,10 @@ urlpatterns =[
 urlpatterns += [
     url(r'^video/', include('Video.urls', namespace='video')),
 ]
+
+urlpatterns += [
+    url(r'^Reading/', include('Reading.urls', namespace='Reading')),
+]
+
 
 
