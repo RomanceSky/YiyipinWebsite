@@ -1,0 +1,15 @@
+
+<html>
+   <body>
+   
+      {% if saved %}
+         <p><strong>Your profile was saved.{{reading.picture}}</strong></p>{{ reading.Bookname }}
+      {% endif %}
+      
+      {% if not saved %}
+         <strong>Your profile was not saved.</strong>
+      {% endif %}
+      
+   </body>
+</html>
+

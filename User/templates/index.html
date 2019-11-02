@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--website index-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="https://img3.doubanio.com/f/frodo/cb278672a7ed5e611bd06d07592cf865a3f5cd91/pics/app/pin.png">
+
+<title>豆瓣首页</title>
+<!-- Bootstrap core CSS-->
+<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<!-- body content -->
+<body>
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+ <div>
+   <div>
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span>Toggle navigation</span>
+    <span><><></span>
+    <span></span>
+    <span></span>
+    </button>
+    <a href="">电影</a>
+{{test}}   
+</div>
+   <div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+        <li><a href=""></a>同城</li>
+        <li><a href=""></a>音乐</li>
+        <li><a href=""></a>小组</li>
+        <li><a href=""></a>电影</li>
+        <li><a href=""></a>读书</li>
+    </ul>
+   </div><!--/ .nav-collpase -->
+ </div>
+</nav>
+<!-- bootstrap 特性容器-->
+<div class="container">
+   <h1>旅行</h1>
+</div>
+<div>
+ <div>
+   <a href="/">模板</a>
+     <h1><a href="">读书</a></h1>
+     <p>Use this document as a way to quickly start any new project</p>
+{{test}} 
+</div>
+</div>
+<!-- / .container -->
+<!-- 引入BootStrap -->
+<!-- jquery JavaScript -->
+<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+<!-- Bootstrap core JavaSScript -->
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.mim.js' %}"></script>
+</body>
+</html>
